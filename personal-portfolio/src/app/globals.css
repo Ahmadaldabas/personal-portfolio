@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.custom-clip-path {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 0,
+    100% 70%,
+    50% 100%,
+    50% 100%,
+    0% 70%,
+    0 0
+  );
+  -webkit-clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 0,
+    100% 70%,
+    50% 100%,
+    50% 100%,
+    0% 70%,
+    0 0
+  );
+}
+
+.clipped-shadow {
+  filter: drop-shadow(11px 17px 0px rgba(15, 15, 15, 0.96));
+}
+.icon-shadow {
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.96));
+}
+.icons-wrapper > * {
+  width: 75px;
+}

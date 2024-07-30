@@ -1,0 +1,6 @@
+main_background:#F9F5F3
+pinkish: #F991E9
+green: #2FA094
+blue: #92A8EC
+CTO-yellow: #F8CB46
+cards-bg:#FFFFFF
