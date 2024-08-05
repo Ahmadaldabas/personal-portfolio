@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-main text-stone-700 text-xl tracking-tighter scroll-smooth",
+          "bg-main no-scrollbar text-stone-700 text-xl tracking-tighter scroll-smooth overflow-x-hidden",
           workSans.className
         )}
       >

@@ -9,7 +9,7 @@ import { titleClass } from "@/config/utils";
 
 function MainSection() {
   return (
-    <section className="mt-28">
+    <section className="pt-28 bg-[#ecfcd5]">
       <MaxWidthWrapper>
         <div className="grid grid-cols-2">
           <div>
@@ -29,7 +29,7 @@ function MainSection() {
                       ],
                       autoStart: true,
                       loop: true,
-                      wrapperClassName: "text-pink-bright",
+                      wrapperClassName: "",
                       cursorClassName: "text-teal",
                     }}
                   />
@@ -49,29 +49,25 @@ function MainSection() {
               </Button>
             </div>
           </div>
-          <div className="relative flex items-center justify-center ">
-            <span className="rounded relative">
-              <RoundedShape className="absolute z-20 -top-28 -right-60">
-                Ahmad
-              </RoundedShape>
+          <div className="relative flex justify-end">
+            <RoundedShape className="absolute z-20 -top-28 -right-40">
+              Ahmad
+            </RoundedShape>
+            <Image
+              src={"/arrow.png"}
+              alt="arrow"
+              width={75}
+              height={75}
+              className="absolute z-20 -top-12 rotate-[128deg]"
+            />
+            <div>
               <Image
-                src={"/arrow.png"}
-                alt="arrow"
-                width={75}
-                height={75}
-                className="absolute z-20 -top-16 -right-16 rotate-[138deg]"
-              />{" "}
-              <span className="clipped-shadow rounded-4xl">
-                <div className="custom-clip-path p-48 relative overflow-hidden rounded-4xl bg-pink-bright">
-                  <Image
-                    src="/logo.png"
-                    alt="Your Image"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-              </span>
-            </span>
+                src={"/personal.png"}
+                alt="personal photo"
+                width={525}
+                height={525}
+              />
+            </div>
           </div>
         </div>
       </MaxWidthWrapper>

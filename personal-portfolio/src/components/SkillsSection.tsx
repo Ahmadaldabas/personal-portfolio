@@ -5,7 +5,7 @@ import Card from "./Card";
 
 function SkillsSection() {
   return (
-    <section className="mt-28 bg-white">
+    <section className="mt-28 pb-28 bg-white">
       <MaxWidthWrapper>
         <div className="flex flex-col items-center justify-center gap-2 pt-12">
           <p>Passion led us here</p>

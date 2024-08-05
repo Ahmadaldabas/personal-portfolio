@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        main: "#F9F5F3",
+        main: "#f5f6f8",
         "pink-bright": "#F991E9",
         teal: "#2FA094",
         "sky-blue": "#92A8EC",
-        "yellow-cta": "#F8CB46",
+        "yellow-cta": "#d9fb68",
         "yellow-cta-hover": "rgb(248 203 70 / 77%)",
         "bg-card": "#FFFFFF",
       },
