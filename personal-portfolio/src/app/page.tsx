@@ -1,3 +1,4 @@
+import EducationCoursesSection from "@/components/EducationCoursesSection";
 import MainSection from "@/components/MainSection";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Nav from "@/components/Nav";
@@ -10,6 +11,7 @@ export default function Home() {
       <Nav />
       <MainSection />
       <SkillsSection />
+      <EducationCoursesSection />
       <ProjectsSection />
     </>
   );

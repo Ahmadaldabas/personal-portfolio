@@ -16,6 +16,7 @@ const config: Config = {
         "yellow-cta": "#d9fb68",
         "yellow-cta-hover": "rgb(248 203 70 / 77%)",
         "bg-card": "#FFFFFF",
+        "black-1": "#010101",
       },
       spacing: {
         "128": "32rem",
@@ -31,13 +32,11 @@ const config: Config = {
         button: "4px 4px 0px -1px rgba(0,0,0,0.96)",
         roundedShape: "4px 5px 0px 2px rgba(0, 0, 0, 0.96)",
         roundedShapeHover: "4px 4px 0px 0px rgba(0,0,0,0.96)",
-        clippedBox:
-          "filter: drop-shadow(5px 5px 0px -1px rgba(0,0,0,0.96))",
+        clippedBox: "filter: drop-shadow(5px 5px 0px -1px rgba(0,0,0,0.96))",
         buttonHover: "6px 6px 0px -1px rgba(0,0,0,0.96)",
       },
       backgroundImage: {
-        "gradient-radial":
-          "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },

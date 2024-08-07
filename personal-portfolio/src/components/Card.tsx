@@ -10,7 +10,7 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border-2 card bg-main border-stone-900 flex flex-col gap-6 text-lg rounded-xl px-6 py-8 shadow-button hover:shadow-buttonHover hover:-translate-x-1 transition">
+    <div className="border-2 card bg-white hover:bg-yellow-cta border-stone-900 flex flex-col gap-6 text-lg rounded-xl px-6 py-8 shadow-button hover:shadow-buttonHover hover:-translate-x-1 transition">
       <h1 className={titleClass("text-2xl")}>{title}</h1>
       <p>{text}</p>
       <div className="flex icons-wrapper gap-2 justify-center flex-wrap">

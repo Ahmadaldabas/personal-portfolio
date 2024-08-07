@@ -17,8 +17,6 @@ function ProjectsSection() {
   const x = useTransform(scrollYProgress, [0.5, 1], ["1%", "-5%"]);
   const y = useTransform(scrollYProgress, [0.5, 1], ["1%", "-100%"]);
 
-  const inView = useInView(viewRef, { amount: "all" });
-
   return (
     <section className="relative">
       <MaxWidthWrapper>

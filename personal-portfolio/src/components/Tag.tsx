@@ -8,7 +8,6 @@ function Tag({
   color?: string;
   children: React.ReactNode;
 }) {
-  console.log(color);
   return (
     <div
       className={cn(
