@@ -14,7 +14,7 @@ function SkillsSection() {
         <div className="flex flex-col justify-center gap-2 pt-12">
           <div className="flex items-center justify-between gap-4">
             <div className="relative flex flex-col gap-4 py-10 pr-10">
-              <Circle className="-left-14 -top-3 -z-10"></Circle>
+              <Circle className="absolute -left-14 -top-3 -z-10"></Circle>
               <BlurBox className="absolute -left-6 top-0"></BlurBox>
               <p>Passion led us here</p>
               <h2 className={titleClass("max-w-144 text-5xl")}>
