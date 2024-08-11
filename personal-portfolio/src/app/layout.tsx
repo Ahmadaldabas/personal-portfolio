@@ -30,8 +30,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-main  text-stone-700 overflow-y-scroll text-xl tracking-tighter scroll-smooth overflow-x-hidden",
-          workSans.className
+          "overflow-x-hidden overflow-y-scroll scroll-smooth bg-main text-lg tracking-tighter text-stone-700 md:text-xl",
+          workSans.className,
         )}
       >
         {children}

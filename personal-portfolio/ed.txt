@@ -1,0 +1,116 @@
+Education
+Link:(https://shoruq.sch.ae/)
+High School (2017 - 2022)
+Al Shorouq Private School
+
+Completed high school with a strong foundation in mathematics and science, fostering an early interest in technology and programming.
+
+University of Wollongong (2023 - 2025)
+Link(https://www.uowdubai.ac.ae/)
+Bachelor of Computer Science
+
+Pursuing a major in Computer Science, with a focus on software development, algorithms, and data structures. Expected to graduate in 2025.
+
+Self-Education
+link(https://cs50.harvard.edu/certificates/71d91f5d-401e-469b-9903-703e2eb55ca0)
+CS50x by Harvard (2022-2023)
+An in-depth introduction to the intellectual enterprises of computer science and the art of programming.
+
+link(https://www.udemy.com/course/the-complete-javascript-course/)
+The Complete JavaScript Course: From Zero to Expert! (2022-2022)
+Mastered JavaScript by building real-world projects, gaining expertise in ES6+ features, asynchronous programming, and more.
+
+
+Build Responsive Real-World Websites with HTML and CSS (2022-2022)
+link(https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)
+Developed skills in modern web design, creating responsive websites using HTML5, CSS3, and flexbox/grid.
+
+
+Node.js, Express, MongoDB & More: The Complete Bootcamp (2023-2023)
+link(https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/)
+Learned to build scalable backend applications using Node.js, Express, and MongoDB, covering RESTful APIs, authentication, and deployment.
+
+The Ultimate React Course: React, Next.js, Redux & More (2022-2023)
+link(https://www.udemy.com/course/the-ultimate-react-course/)
+Advanced in React and Next.js, mastering state management with Redux, server-side rendering, and building full-stack applications.
+
+DevOps Beginners to Advanced with Projects (2024-2024)
+link(https://www.udemy.com/course/decodingdevops/?couponCode=ST10MT8624)
+Explored DevOps practices and tools, including CI/CD pipelines, containerization, and orchestration, applied in real-world projects.
+
+
+
+
+
+// File: src/components/EducationSection.tsx
+import React from "react";
+import EducationCard from "./EducationCard";
+
+const educationData = [
+  {
+    title: "High School",
+    duration: "2017 - 2022",
+    description: "Completed high school with a strong foundation in mathematics and science, fostering an early interest in technology and programming.",
+    link: "https://shoruq.sch.ae/",
+  },
+  {
+    title: "University of Wollongong",
+    duration: "2023 - 2025",
+    description: "Pursuing a major in Computer Science, with a focus on software development, algorithms, and data structures. Expected to graduate in 2025.",
+    link: "https://www.uowdubai.ac.ae/",
+  },
+  {
+    title: "Self-Education",
+    duration: "2022 - 2023",
+    description: "An in-depth introduction to the intellectual enterprises of computer science and the art of programming.",
+    link: "https://cs50.harvard.edu/certificates/71d91f5d-401e-469b-9903-703e2eb55ca0",
+  },
+  {
+    title: "The Complete JavaScript Course",
+    duration: "2022 - 2022",
+    description: "Mastered JavaScript by building real-world projects, gaining expertise in ES6+ features, asynchronous programming, and more.",
+    link: "https://www.udemy.com/course/the-complete-javascript-course/",
+  },
+  {
+    title: "Build Responsive Real-World Websites with HTML and CSS",
+    duration: "2022 - 2022",
+    description: "Developed skills in modern web design, creating responsive websites using HTML5, CSS3, and flexbox/grid.",
+    link: "https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/",
+  },
+  {
+    title: "Node.js, Express, MongoDB & More: The Complete Bootcamp",
+    duration: "2023 - 2023",
+    description: "Learned to build scalable backend applications using Node.js, Express, and MongoDB, covering RESTful APIs, authentication, and deployment.",
+    link: "https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/",
+  },
+  {
+    title: "The Ultimate React Course: React, Next.js, Redux & More",
+    duration: "2022 - 2023",
+    description: "Advanced in React and Next.js, mastering state management with Redux, server-side rendering, and building full-stack applications.",
+    link: "https://www.udemy.com/course/the-ultimate-react-course/",
+  },
+  {
+    title: "DevOps Beginners to Advanced with Projects",
+    duration: "2024 - 2024",
+    description: "Explored DevOps practices and tools, including CI/CD pipelines, containerization, and orchestration, applied in real-world projects.",
+    link: "https://www.udemy.com/course/decodingdevops/?couponCode=ST10MT8624",
+  },
+];
+
+const EducationSection = () => {
+  return (
+    <div>
+      {educationData.map((edu, index) => (
+        <EducationCard
+          key={index}
+          title={edu.title}
+          duration={edu.duration}
+          description={edu.description}
+          link={edu.link}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default EducationSection;

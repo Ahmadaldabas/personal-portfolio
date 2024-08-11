@@ -13,37 +13,27 @@ const navElements = [
 ];
 function Nav() {
   return (
-    <div className="bg-[#ecfcd5] pt-4 pb-2 text-lg">
+    <div className="bg-[#ecfcd5] pb-2 pt-4 text-lg md:px-12 xl:px-0">
       <MaxWidthWrapper>
         <motion.nav
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-between items-center px-6 py-2 border-2 shadow-button bg-white border-stone-900  rounded-3xl "
+          className="flex items-center justify-between rounded-3xl border-2 border-stone-900 bg-white px-6 py-2 shadow-button"
         >
-          <a
-            href="#main"
-            className="flex justify-center gap-2 items-center"
-          >
-            <Image
-              src="/logo_2.png"
-              alt="logo"
-              width={50}
-              height={50}
-            ></Image>
-            <p className="font-bold text-xl  transition-all">
-              ahmad.aldabas
-            </p>
+          <a href="#main" className="flex items-center justify-center gap-2">
+            <Image src="/logo_2.png" alt="logo" width={50} height={50}></Image>
+            <p className="text-xl font-bold transition-all">ahmad.aldabas</p>
           </a>
-          <ul className="flex gap-3 items-center">
+          <ul className="flex items-center gap-3">
             {navElements.map((el, i) => (
-              <li key={i} className="relative group">
+              <li key={i} className="group relative">
                 <NavButton href={el.href} name={el.name} />
               </li>
             ))}
             <li>
               <Button
-                className="px-6 ml-2 hover:translate-x-0 hover:translate-y-0"
+                className="ml-2 px-6 hover:translate-x-0 hover:translate-y-0"
                 onClick={() => alert("Coming Soon")}
               >
                 <span className="flex items-center justify-between gap-1">

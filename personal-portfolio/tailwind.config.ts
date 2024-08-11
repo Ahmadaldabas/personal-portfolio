@@ -41,6 +41,7 @@ const config = {
         "yellow-cta-hover": "rgb(248 203 70 / 77%)",
         "bg-card": "#FFFFFF",
         "black-1": "#010101",
+        "white-card": "#F9FAFC",
       },
       spacing: {
         "128": "32rem",
@@ -67,6 +68,10 @@ const config = {
       },
       fontFamily: {
         prompt: ["var(--font-prompt)"],
+      },
+      screens: {
+        "2xl": "1568px",
+        main: "1240px",
       },
     },
   },

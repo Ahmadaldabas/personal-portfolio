@@ -13,10 +13,8 @@ function RoundedShape({
   return (
     <div
       className={cn(
-        `px-8 py-3 border-stone-900 border-[3px] transition-all
-         hover:text-stone-700 hover:shadow-roundedShapeHover hover:bg-sky-blue
-          text-stone-800 text-3xl  font-bold bg-sky-blue shadow-roundedShape rounded-full`,
-        className
+        `rounded-full border-[3px] border-stone-900 bg-sky-blue text-3xl font-bold text-stone-800 shadow-roundedShape transition-all hover:bg-sky-blue hover:text-stone-700 hover:shadow-roundedShapeHover 2xl:px-8 2xl:py-3`,
+        className,
       )}
       {...props}
     >

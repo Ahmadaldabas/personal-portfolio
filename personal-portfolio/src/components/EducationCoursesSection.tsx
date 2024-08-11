@@ -1,16 +1,267 @@
 "use client";
-import { titleClass } from "@/config/utils";
+import { cn, titleClass } from "@/config/utils";
 import BlurBox from "./BlurBox";
 import Circle from "./Circle";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { useRef } from "react";
+import { Fragment, useRef, useState } from "react";
 import { AnimatedBeam } from "./magicui/animated-beam";
+import EducationCard from "./EducationCard";
+import { delay, motion } from "framer-motion";
+import { link } from "fs";
+import Button from "./Button";
 function EducationCoursesSection() {
+  const [isNext, setIsNext] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const midRef = useRef<HTMLDivElement>(null);
   const educationSectionRef = useRef<HTMLDivElement>(null);
   const coursesSetcionRef = useRef<HTMLDivElement>(null);
+  const schoolRef = useRef<HTMLDivElement>(null);
+  const uniRef = useRef<HTMLDivElement>(null);
+  const cs50Ref = useRef<HTMLDivElement>(null);
+  const jsCourseRef = useRef<HTMLDivElement>(null);
+  const htmlCssRef = useRef<HTMLDivElement>(null);
+  const nodejsRef = useRef<HTMLDivElement>(null);
+  const reactCourseRef = useRef<HTMLDivElement>(null);
+  const devopsRef = useRef<HTMLDivElement>(null);
+  const showMoreRef = useRef<HTMLDivElement>(null);
+
+  const selfEducationData = [
+    {
+      title: "The Ultimate React Course: React, Next.js, Redux & More",
+      duration: "2022 - 2023",
+      description:
+        "Advanced in React and Next.js, mastering state management with Redux, server-side rendering, and building full-stack applications.",
+      link: "https://www.udemy.com/course/the-ultimate-react-course/",
+      ref: reactCourseRef,
+    },
+    {
+      title: "The Complete JavaScript Course",
+      duration: "2022 - 2022",
+      description:
+        "Mastered JavaScript by building real-world projects, gaining expertise in ES6+ features, asynchronous programming, and more.",
+      link: "https://www.udemy.com/course/the-complete-javascript-course/",
+      ref: jsCourseRef,
+    },
+    {
+      title: "DevOps Beginners to Advanced with Projects",
+      duration: "2024 - 2024",
+      description:
+        "Explored DevOps practices and tools, including CI/CD pipelines, containerization, and orchestration, applied in real-world projects.",
+      link: "https://www.udemy.com/course/decodingdevops/?couponCode=ST10MT8624",
+      ref: devopsRef,
+    },
+    {
+      title: "Build Responsive Real-World Websites",
+      duration: "2022 - 2022",
+      description:
+        "Developed skills in modern web design, creating responsive websites using HTML5, CSS3, and flexbox/grid.",
+      link: "https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/",
+      ref: htmlCssRef,
+    },
+    {
+      title: "Node.js, Express, MongoDB Bootcamp",
+      duration: "2023 - 2023",
+      description:
+        "Learned to build scalable backend applications using Node.js, Express, and MongoDB, covering RESTful APIs, authentication, and deployment.",
+      link: "https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/",
+      ref: nodejsRef,
+    },
+    {
+      title: "The Complete Networking Fundamentals Course. Your CCNA start",
+
+      duration: "2024 - 2024",
+      description:
+        "A thorough introduction to networking concepts, including practical knowledge for CCNA certification.",
+      link: "https://www.udemy.com/course/complete-networking-fundamentals-course-ccna-start/?couponCode=LETSLEARNNOWPP",
+    },
+  ];
+
+  const educationData = [
+    {
+      title: "University of Wollongong",
+      duration: "2023 - 2025",
+      description:
+        "Pursuing a major in Computer Science, with a focus on software development, algorithms, and data structures. Expected to graduate in 2025.",
+      link: "https://www.uowdubai.ac.ae/",
+      ref: uniRef,
+    },
+    {
+      title: "CS50x by Harvard",
+      duration: "2022 - 2023",
+      description:
+        "A comprehensive and rigorous introduction to the fundamental concepts of computer science and programming. Covered topics include algorithms, data structures.",
+      link: "https://cs50.harvard.edu/certificates/71d91f5d-401e-469b-9903-703e2eb55ca0",
+      ref: cs50Ref,
+    },
+    {
+      title: "Al Shorouq Private School",
+      duration: "2017 - 2022",
+      description:
+        "Completed high school with a strong foundation in mathematics and science, fostering an early interest in technology and programming.",
+      link: "https://shoruq.sch.ae/",
+      ref: schoolRef,
+    },
+  ];
+  const cardVariants = {
+    opened: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+        delay: 0.2,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "-121%",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const underCardsVariants = {
+    opened: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        delay: 0.2,
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "121%",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+    mount: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    initial: {
+      opacity: 0,
+      y: "50%",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+  };
+  const cardsAnimateVariants = {
+    mount: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    initial: {
+      opacity: 0,
+      y: "50%",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const selfItems = (() => {
+    let items = [];
+    for (let i = 0; i < selfEducationData.length; i = i + 2)
+      items.push(
+        <Fragment key={i}>
+          <div className="overflow-hidden p-6">
+            <div className="relative">
+              {/* First motion.div */}
+              <motion.div
+                variants={cardsAnimateVariants}
+                initial="initial"
+                whileInView={"mount"}
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  variants={underCardsVariants}
+                  initial="closed"
+                  animate={isNext ? "closed" : "opened"}
+                  className="ml-28"
+                >
+                  <EducationCard
+                    title={selfEducationData[i]!.title}
+                    duration={selfEducationData[i]!.duration}
+                    description={selfEducationData[i]!.description}
+                    link={selfEducationData[i]!.link}
+                    className=""
+                  />
+                </motion.div>
+              </motion.div>
+
+              {/* Second motion.div */}
+              <motion.div
+                className="absolute inset-0 ml-28 flex items-center justify-between"
+                initial="initial"
+                animate={isNext ? "opened" : "closed"}
+                variants={cardVariants}
+                whileInView="mount"
+                viewport={{ once: true }}
+              >
+                <EducationCard
+                  title={selfEducationData[i + 1]!?.title}
+                  duration={selfEducationData[i + 1]!?.duration}
+                  description={selfEducationData[i + 1]!?.description}
+                  link={selfEducationData[i + 1]!?.link}
+                />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Show more/less button with third motion.div */}
+          {i === 4 ? (
+            <>
+              <Circle
+                ref={selfEducationData[i]!?.ref}
+                className="relative z-10 border border-stone-900 p-4 shadow-circle"
+              />
+              <div></div>
+              <div ref={showMoreRef}>
+                <Button
+                  className="relative z-10 px-4 hover:translate-x-0 hover:translate-y-0"
+                  onClick={() => setIsNext((el) => !el)}
+                >
+                  <span className="flex items-center justify-between gap-1">
+                    <span>{isNext ? "Show less" : "Show more"}</span>
+                    <svg
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      className="bg h-4 w-4 -rotate-[40deg] transition-all group-hover:fill-white"
+                    >
+                      <path d="M10 0L8.59 1.41 16.17 9H0v2h16.17l-7.58 7.59L10 20l10-10z" />
+                    </svg>
+                  </span>
+                </Button>
+              </div>
+            </>
+          ) : (
+            <Circle
+              ref={selfEducationData[i]!?.ref}
+              className="relative z-10 border border-stone-900 p-4 shadow-circle"
+            />
+          )}
+        </Fragment>,
+      );
+    return items;
+  })();
 
   return (
     <section>
@@ -25,45 +276,69 @@ function EducationCoursesSection() {
           <h2 className={titleClass("text-5xl")}>My educational background</h2>
           <Circle
             ref={titleRef}
-            className="b shadow-circle z-10 border border-stone-900 p-4"
+            className="b z-10 border border-stone-900 p-4 shadow-circle"
           />
-          <div
-            ref={midRef}
-            className="mt-28 flex w-full max-w-full items-center justify-between"
-          >
-            <div className="flex items-center justify-center gap-6">
-              <div className="flex flex-col items-center justify-center">
+          <div className="mt-28 flex w-full max-w-full items-start justify-between">
+            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
+              <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
+                <h3 className="text-2xl">Education</h3>
                 <Circle
                   ref={educationSectionRef}
-                  className="b shadow-circle z-10 border border-stone-900 p-4"
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
                 />
               </div>
-              <div className="mb-12 flex flex-col items-center justify-center">
-                <h3 className="text-2xl">Education</h3>
-              </div>
+              <div></div>
+              {educationData.map((edu, index) => (
+                <Fragment key={index}>
+                  <div key={index}>
+                    <Circle
+                      ref={edu.ref}
+                      className="relative z-10 border border-stone-900 p-4 shadow-circle"
+                    />
+                  </div>
+                  <motion.div
+                    initial="initial"
+                    variants={cardsAnimateVariants}
+                    viewport={{ once: true }}
+                    className="mr-28 p-6"
+                    whileInView={"mount"}
+                  >
+                    <EducationCard
+                      key={index + 1}
+                      title={edu!.title}
+                      duration={edu!.duration}
+                      description={edu!.description}
+                      link={edu!.link}
+                    />
+                  </motion.div>
+                </Fragment>
+              ))}
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <h3 className="text-2xl">Courses</h3>
-              <Circle
-                ref={coursesSetcionRef}
-                className="b shadow-circle z-10 border border-stone-900 p-4"
-              />
+            <div ref={midRef}></div>
+            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
+              <div></div>
+              <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
+                <h3 className="text-2xl">Self-Education</h3>
+                <Circle
+                  ref={coursesSetcionRef}
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
+                />
+              </div>
+
+              {selfItems}
             </div>
           </div>
           <Circle className="absolute -top-8 right-[39%] -z-10" />
-
           <AnimatedBeam
             containerRef={containerRef}
             fromRef={midRef}
             toRef={coursesSetcionRef}
-            delay={3}
             pathOpacity={0.8}
           />
           <AnimatedBeam
             containerRef={containerRef}
             fromRef={midRef}
             toRef={educationSectionRef}
-            delay={3}
             pathOpacity={0.8}
             reverse
           />
@@ -71,7 +346,51 @@ function EducationCoursesSection() {
             containerRef={containerRef}
             fromRef={titleRef}
             toRef={midRef}
-            delay={3}
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={educationSectionRef}
+            toRef={uniRef}
+            pathOpacity={0.8}
+            reverse
+          />{" "}
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={uniRef}
+            toRef={cs50Ref}
+            pathOpacity={0.8}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={cs50Ref}
+            toRef={schoolRef}
+            pathOpacity={0.8}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={coursesSetcionRef}
+            toRef={reactCourseRef}
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={reactCourseRef}
+            toRef={devopsRef}
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={devopsRef}
+            toRef={nodejsRef}
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={nodejsRef}
+            toRef={showMoreRef}
             pathOpacity={0.8}
           />
         </div>
