@@ -15,7 +15,7 @@ function Button({
     <button
       {...props}
       className={cn(
-        "rounded-full border border-stone-900 bg-yellow-cta px-8 py-2 font-bold text-stone-800 shadow-button transition-all hover:-translate-x-1 hover:-translate-y-1 hover:transform hover:bg-yellow-cta-hover hover:text-stone-700 hover:shadow-buttonHover md:px-10 md:py-3",
+        "rounded-full border border-stone-900 bg-yellow-cta px-2 py-2 font-bold text-stone-800 shadow-button transition-all hover:-translate-x-1 hover:-translate-y-1 hover:transform hover:bg-yellow-cta-hover hover:text-stone-700 hover:shadow-buttonHover md:px-4 md:py-1",
         className,
       )}
       onClick={onClick}

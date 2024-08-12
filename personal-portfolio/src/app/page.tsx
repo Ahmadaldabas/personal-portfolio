@@ -9,12 +9,12 @@ import SkillsSection from "@/components/SkillsSection";
 export default function Home() {
   return (
     <>
-      {/* <Nav /> */}
+      <Nav />
       <MainSection />
       <SkillsSection />
-      {/* <EducationCoursesSection /> */}
-      {/* <ProjectsSection /> */}
-      {/* <ContactMeSection /> */}
+      <EducationCoursesSection />
+      {/* <ProjectsSection />
+      <ContactMeSection /> */}
     </>
   );
 }

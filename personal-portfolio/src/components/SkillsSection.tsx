@@ -9,10 +9,10 @@ import BlurBox from "./BlurBox";
 
 function SkillsSection() {
   return (
-    <section className="px-8 pb-28 pt-16 sm:pt-20 md:px-20 md:pb-28 md:pt-20 lg:pt-24 xl:p-0 xl:pb-28 xl:pt-28">
+    <section className="px-8 pb-28 pt-12 sm:pt-20 md:px-20 md:pb-28 md:pt-14 lg:pt-16 xl:p-0 xl:pb-28 xl:pt-16">
       <MaxWidthWrapper>
         <div className="flex flex-col justify-center gap-2 pt-12">
-          <div className="flex flex-col items-center justify-between text-center md:gap-4 lg:flex-row lg:text-start">
+          <div className="flex flex-col items-center justify-between px-4 text-center md:gap-4 lg:flex-row lg:text-start">
             <div className="relative flex flex-col gap-4 py-10 lg:pr-10">
               <Circle className="absolute -left-14 -top-3 -z-10"></Circle>
               <BlurBox className="absolute -left-6 top-0"></BlurBox>
@@ -45,7 +45,7 @@ function SkillsSection() {
               </h2>
             </div>
             <Button
-              className="ml-2 px-6 hover:translate-x-0 hover:translate-y-0"
+              className="ml-2 px-6 hover:translate-x-0 hover:translate-y-0 md:py-2"
               onClick={() => alert("Coming Soon")}
             >
               <span className="flex items-center justify-between gap-1">

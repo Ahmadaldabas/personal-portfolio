@@ -72,6 +72,7 @@ const config = {
       screens: {
         "2xl": "1568px",
         main: "1240px",
+        md: "825px",
       },
     },
   },
