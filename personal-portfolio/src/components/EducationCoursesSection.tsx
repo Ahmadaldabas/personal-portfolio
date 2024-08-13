@@ -295,7 +295,7 @@ function EducationCoursesSection() {
   })();
 
   return (
-    <section className="px-8 text-center md:px-20 md:text-start">
+    <section className="text-center sm:px-8 md:px-20 md:text-start">
       <MaxWidthWrapper>
         <div
           ref={containerRef}

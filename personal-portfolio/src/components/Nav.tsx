@@ -42,7 +42,7 @@ function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="bg-[#ecfcd5] px-8 pb-2 pt-4 text-lg md:px-12 xl:px-0">
+    <div className="bg-[#ecfcd5] px-1 pb-2 pt-4 text-lg md:px-12 xl:px-0">
       <MaxWidthWrapper>
         <motion.nav
           initial={{ y: -100 }}
