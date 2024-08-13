@@ -295,7 +295,7 @@ function EducationCoursesSection() {
   })();
 
   return (
-    <section className="text-center sm:px-8 md:px-20 md:text-start">
+    <section className="px-2 text-center sm:px-8 md:px-20 md:text-start">
       <MaxWidthWrapper>
         <div
           ref={containerRef}
@@ -372,7 +372,7 @@ function EducationCoursesSection() {
           </div>
           {/* {"mobile courses sec"} */}
           <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-48 gap-y-36">
+            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
               <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                 <Circle
                   ref={leftRef2}
@@ -416,7 +416,7 @@ function EducationCoursesSection() {
             </div>
             <div ref={midRef2}></div>
 
-            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-48 gap-y-36">
+            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
               <div></div>
               <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
                 <Circle
@@ -468,7 +468,7 @@ function EducationCoursesSection() {
             />
           </div>
           <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-48 gap-y-36">
+            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
               <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                 <Circle
                   ref={leftRef3}
@@ -515,7 +515,7 @@ function EducationCoursesSection() {
             </div>
             <div ref={midRef3}></div>
 
-            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-48 gap-y-36">
+            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
               <div></div>
               <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
                 <Circle
