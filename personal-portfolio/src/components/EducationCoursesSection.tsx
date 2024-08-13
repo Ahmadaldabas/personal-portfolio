@@ -393,7 +393,13 @@ const EducationCoursesSection = memo(() => {
                         )}
                       />
                     </div>
-                    <div>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
                       <EducationCard
                         key={index + 1}
                         title={edu!.title}
@@ -403,7 +409,7 @@ const EducationCoursesSection = memo(() => {
                         className={cn({ "mt-80": index % 2 === 0 })}
                         mobile
                       />
-                    </div>
+                    </motion.div>
                   </Fragment>
                 ))}
             </div>
@@ -421,7 +427,13 @@ const EducationCoursesSection = memo(() => {
                 .slice(0, educationData.length / 2 + 1)
                 .map((edu, index) => (
                   <Fragment key={index}>
-                    <div>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
                       <EducationCard
                         key={index + 1}
                         title={edu!.title}
@@ -431,7 +443,7 @@ const EducationCoursesSection = memo(() => {
                         className={cn({ "mt-80": index % 2 !== 0 })}
                         mobile
                       />
-                    </div>
+                    </motion.div>
                     <div key={index}>
                       <Circle
                         ref={edu.secRef}
@@ -480,7 +492,13 @@ const EducationCoursesSection = memo(() => {
                         )}
                       />
                     </div>
-                    <div>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
                       <EducationCard
                         key={index + 1}
                         title={edu!.title}
@@ -490,7 +508,7 @@ const EducationCoursesSection = memo(() => {
                         className={cn("mt-80")}
                         mobile
                       />
-                    </div>
+                    </motion.div>
                   </Fragment>
                 ))}
             </div>
@@ -508,7 +526,13 @@ const EducationCoursesSection = memo(() => {
                 .slice(0, selfEducationData.length / 2)
                 .map((edu, index) => (
                   <Fragment key={index}>
-                    <div>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
                       <EducationCard
                         key={index + 1}
                         title={edu!.title}
@@ -518,7 +542,7 @@ const EducationCoursesSection = memo(() => {
                         className={cn({ "mt-80": index !== 0 })}
                         mobile
                       />
-                    </div>
+                    </motion.div>
                     <div key={index}>
                       <Circle
                         ref={edu.secRef}
