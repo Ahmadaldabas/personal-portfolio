@@ -3,13 +3,13 @@ import { cn, titleClass } from "@/config/utils";
 import BlurBox from "./BlurBox";
 import Circle from "./Circle";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { Fragment, useRef, useState } from "react";
+import { Fragment, memo, useRef, useState } from "react";
 import { AnimatedBeam } from "./magicui/animated-beam";
 import EducationCard from "./EducationCard";
 import { delay, motion } from "framer-motion";
 import { link } from "fs";
 import Button from "./Button";
-function EducationCoursesSection() {
+const EducationCoursesSection = memo(() => {
   const [isNext, setIsNext] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -744,6 +744,6 @@ function EducationCoursesSection() {
       </MaxWidthWrapper>
     </section>
   );
-}
+});
 
 export default EducationCoursesSection;
