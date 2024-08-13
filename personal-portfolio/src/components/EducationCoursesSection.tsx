@@ -321,243 +321,251 @@ const EducationCoursesSection = memo(() => {
             />
           </div>
           {/* Desktop */}
-          <div className="mt-28 hidden w-full max-w-full items-start justify-between lg:flex">
-            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
-              <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
-                <h3 className="text-2xl">Education</h3>
+          {isLargeDevice && (
+            <div className="mt-28 hidden w-full max-w-full items-start justify-between lg:flex">
+              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
+                <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
+                  <h3 className="text-2xl">Education</h3>
+                  <Circle
+                    ref={educationSectionRef}
+                    className="b z-10 border border-stone-900 p-4 shadow-circle"
+                  />
+                </div>
+                <div></div>
+                {educationData.map((edu, index) => (
+                  <Fragment key={index}>
+                    <div key={index}>
+                      <Circle
+                        ref={edu.ref}
+                        className="relative z-10 border border-stone-900 p-4 shadow-circle"
+                      />
+                    </div>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className="mr-28 p-6"
+                      whileInView={"mount"}
+                    >
+                      <EducationCard
+                        key={index + 1}
+                        title={edu!.title}
+                        duration={edu!.duration}
+                        description={edu!.description}
+                        link={edu!.link}
+                      />
+                    </motion.div>
+                  </Fragment>
+                ))}
+              </div>
+              <div ref={midRef}></div>
+              <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
+                <div></div>
+                <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
+                  <h3 className="text-2xl">Self-Education</h3>
+                  <Circle
+                    ref={coursesSetcionRef}
+                    className="b z-10 border border-stone-900 p-4 shadow-circle"
+                  />
+                </div>
+
+                {selfItems}
+              </div>
+            </div>
+          )}
+          {/* {"mobile courses sec"} */}
+          {!isLargeDevice && (
+            <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
+              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+                <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
+                  <Circle
+                    ref={leftRef2}
+                    className="b z-10 border border-stone-900 p-4 shadow-circle"
+                  />
+                </div>
+                <div></div>
+                {educationData
+                  .slice(educationData.length - 1, educationData.length + 1)
+
+                  .map((edu, index) => (
+                    <Fragment key={index}>
+                      <div key={index}>
+                        <Circle
+                          ref={edu.secRef}
+                          className={cn(
+                            "relative z-10 border border-stone-900 p-4 shadow-circle",
+                            { "mt-80": index % 2 === 0 },
+                          )}
+                        />
+                      </div>
+                      <motion.div
+                        initial="initial"
+                        variants={cardsAnimateVariants}
+                        viewport={{ once: true }}
+                        className=""
+                        whileInView={"mount"}
+                      >
+                        <EducationCard
+                          key={index + 1}
+                          title={edu!.title}
+                          duration={edu!.duration}
+                          description={edu!.description}
+                          link={edu!.link}
+                          className={cn({ "mt-80": index % 2 === 0 })}
+                          mobile
+                        />
+                      </motion.div>
+                    </Fragment>
+                  ))}
+              </div>
+              <div ref={midRef2}></div>
+
+              <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+                <div></div>
+                <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
+                  <Circle
+                    ref={rightRef2}
+                    className="b z-10 border border-stone-900 p-4 shadow-circle"
+                  />
+                </div>
+                {educationData
+                  .slice(0, educationData.length / 2 + 1)
+                  .map((edu, index) => (
+                    <Fragment key={index}>
+                      <motion.div
+                        initial="initial"
+                        variants={cardsAnimateVariants}
+                        viewport={{ once: true }}
+                        className=""
+                        whileInView={"mount"}
+                      >
+                        <EducationCard
+                          key={index + 1}
+                          title={edu!.title}
+                          duration={edu!.duration}
+                          description={edu!.description}
+                          link={edu!.link}
+                          className={cn({ "mt-80": index % 2 !== 0 })}
+                          mobile
+                        />
+                      </motion.div>
+                      <div key={index}>
+                        <Circle
+                          ref={edu.secRef}
+                          className={cn(
+                            "relative z-10 border border-stone-900 p-4 shadow-circle",
+                            { "mt-80": index % 2 !== 0 },
+                          )}
+                        />
+                      </div>
+                    </Fragment>
+                  ))}
+              </div>
+            </div>
+          )}
+          {/* {"mobile courses third"} */}
+          {!isLargeDevice && (
+            <>
+              <div className="mt-16 flex flex-col items-center justify-center lg:hidden">
+                <h3 className="mb-3 text-2xl">Education</h3>
+
                 <Circle
-                  ref={educationSectionRef}
+                  ref={titleRef3}
                   className="b z-10 border border-stone-900 p-4 shadow-circle"
                 />
               </div>
-              <div></div>
-              {educationData.map((edu, index) => (
-                <Fragment key={index}>
-                  <div key={index}>
+              <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
+                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+                  <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                     <Circle
-                      ref={edu.ref}
-                      className="relative z-10 border border-stone-900 p-4 shadow-circle"
+                      ref={leftRef3}
+                      className="b z-10 border border-stone-900 p-4 shadow-circle"
                     />
                   </div>
-                  <motion.div
-                    initial="initial"
-                    variants={cardsAnimateVariants}
-                    viewport={{ once: true }}
-                    className="mr-28 p-6"
-                    whileInView={"mount"}
-                  >
-                    <EducationCard
-                      key={index + 1}
-                      title={edu!.title}
-                      duration={edu!.duration}
-                      description={edu!.description}
-                      link={edu!.link}
+                  <div></div>
+                  {selfEducationData
+                    .slice(
+                      selfEducationData.length / 2,
+                      selfEducationData.length + 1,
+                    )
+
+                    .map((edu, index) => (
+                      <Fragment key={index}>
+                        <div key={index}>
+                          <Circle
+                            ref={edu.secRef}
+                            className={cn(
+                              "relative z-10 mt-80 border border-stone-900 p-4 shadow-circle",
+                              { "mt-80": index % 2 === 0 },
+                            )}
+                          />
+                        </div>
+                        <motion.div
+                          initial="initial"
+                          variants={cardsAnimateVariants}
+                          viewport={{ once: true }}
+                          className=""
+                          whileInView={"mount"}
+                        >
+                          <EducationCard
+                            key={index + 1}
+                            title={edu!.title}
+                            duration={edu!.duration}
+                            description={edu!.description}
+                            link={edu!.link}
+                            className={cn("mt-80")}
+                            mobile
+                          />
+                        </motion.div>
+                      </Fragment>
+                    ))}
+                </div>
+                <div ref={midRef3}></div>
+
+                <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+                  <div></div>
+                  <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
+                    <Circle
+                      ref={rightRef3}
+                      className="b z-10 border border-stone-900 p-4 shadow-circle"
                     />
-                  </motion.div>
-                </Fragment>
-              ))}
-            </div>
-            <div ref={midRef}></div>
-            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
-              <div></div>
-              <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
-                <h3 className="text-2xl">Self-Education</h3>
-                <Circle
-                  ref={coursesSetcionRef}
-                  className="b z-10 border border-stone-900 p-4 shadow-circle"
-                />
-              </div>
-
-              {selfItems}
-            </div>
-          </div>
-          {/* {"mobile courses sec"} */}
-          <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-              <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
-                <Circle
-                  ref={leftRef2}
-                  className="b z-10 border border-stone-900 p-4 shadow-circle"
-                />
-              </div>
-              <div></div>
-              {educationData
-                .slice(educationData.length - 1, educationData.length + 1)
-
-                .map((edu, index) => (
-                  <Fragment key={index}>
-                    <div key={index}>
-                      <Circle
-                        ref={edu.secRef}
-                        className={cn(
-                          "relative z-10 border border-stone-900 p-4 shadow-circle",
-                          { "mt-80": index % 2 === 0 },
-                        )}
-                      />
-                    </div>
-                    <motion.div
-                      initial="initial"
-                      variants={cardsAnimateVariants}
-                      viewport={{ once: true }}
-                      className=""
-                      whileInView={"mount"}
-                    >
-                      <EducationCard
-                        key={index + 1}
-                        title={edu!.title}
-                        duration={edu!.duration}
-                        description={edu!.description}
-                        link={edu!.link}
-                        className={cn({ "mt-80": index % 2 === 0 })}
-                        mobile
-                      />
-                    </motion.div>
-                  </Fragment>
-                ))}
-            </div>
-            <div ref={midRef2}></div>
-
-            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-              <div></div>
-              <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
-                <Circle
-                  ref={rightRef2}
-                  className="b z-10 border border-stone-900 p-4 shadow-circle"
-                />
-              </div>
-              {educationData
-                .slice(0, educationData.length / 2 + 1)
-                .map((edu, index) => (
-                  <Fragment key={index}>
-                    <motion.div
-                      initial="initial"
-                      variants={cardsAnimateVariants}
-                      viewport={{ once: true }}
-                      className=""
-                      whileInView={"mount"}
-                    >
-                      <EducationCard
-                        key={index + 1}
-                        title={edu!.title}
-                        duration={edu!.duration}
-                        description={edu!.description}
-                        link={edu!.link}
-                        className={cn({ "mt-80": index % 2 !== 0 })}
-                        mobile
-                      />
-                    </motion.div>
-                    <div key={index}>
-                      <Circle
-                        ref={edu.secRef}
-                        className={cn(
-                          "relative z-10 border border-stone-900 p-4 shadow-circle",
-                          { "mt-80": index % 2 !== 0 },
-                        )}
-                      />
-                    </div>
-                  </Fragment>
-                ))}
-            </div>
-          </div>
-          {/* {"mobile courses third"} */}
-          <div className="mt-16 flex flex-col items-center justify-center lg:hidden">
-            <h3 className="mb-3 text-2xl">Education</h3>
-
-            <Circle
-              ref={titleRef3}
-              className="b z-10 border border-stone-900 p-4 shadow-circle"
-            />
-          </div>
-          <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-              <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
-                <Circle
-                  ref={leftRef3}
-                  className="b z-10 border border-stone-900 p-4 shadow-circle"
-                />
-              </div>
-              <div></div>
-              {selfEducationData
-                .slice(
-                  selfEducationData.length / 2,
-                  selfEducationData.length + 1,
-                )
-
-                .map((edu, index) => (
-                  <Fragment key={index}>
-                    <div key={index}>
-                      <Circle
-                        ref={edu.secRef}
-                        className={cn(
-                          "relative z-10 mt-80 border border-stone-900 p-4 shadow-circle",
-                          { "mt-80": index % 2 === 0 },
-                        )}
-                      />
-                    </div>
-                    <motion.div
-                      initial="initial"
-                      variants={cardsAnimateVariants}
-                      viewport={{ once: true }}
-                      className=""
-                      whileInView={"mount"}
-                    >
-                      <EducationCard
-                        key={index + 1}
-                        title={edu!.title}
-                        duration={edu!.duration}
-                        description={edu!.description}
-                        link={edu!.link}
-                        className={cn("mt-80")}
-                        mobile
-                      />
-                    </motion.div>
-                  </Fragment>
-                ))}
-            </div>
-            <div ref={midRef3}></div>
-
-            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-              <div></div>
-              <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
-                <Circle
-                  ref={rightRef3}
-                  className="b z-10 border border-stone-900 p-4 shadow-circle"
-                />
-              </div>
-              {selfEducationData
-                .slice(0, selfEducationData.length / 2)
-                .map((edu, index) => (
-                  <Fragment key={index}>
-                    <motion.div
-                      initial="initial"
-                      variants={cardsAnimateVariants}
-                      viewport={{ once: true }}
-                      className=""
-                      whileInView={"mount"}
-                    >
-                      <EducationCard
-                        key={index + 1}
-                        title={edu!.title}
-                        duration={edu!.duration}
-                        description={edu!.description}
-                        link={edu!.link}
-                        className={cn({ "mt-80": index !== 0 })}
-                        mobile
-                      />
-                    </motion.div>
-                    <div key={index}>
-                      <Circle
-                        ref={edu.secRef}
-                        className={cn(
-                          "relative z-10 border border-stone-900 p-4 shadow-circle",
-                          { "mt-80": index !== 0 },
-                        )}
-                      />
-                    </div>
-                  </Fragment>
-                ))}
-            </div>
-          </div>
+                  </div>
+                  {selfEducationData
+                    .slice(0, selfEducationData.length / 2)
+                    .map((edu, index) => (
+                      <Fragment key={index}>
+                        <motion.div
+                          initial="initial"
+                          variants={cardsAnimateVariants}
+                          viewport={{ once: true }}
+                          className=""
+                          whileInView={"mount"}
+                        >
+                          <EducationCard
+                            key={index + 1}
+                            title={edu!.title}
+                            duration={edu!.duration}
+                            description={edu!.description}
+                            link={edu!.link}
+                            className={cn({ "mt-80": index !== 0 })}
+                            mobile
+                          />
+                        </motion.div>
+                        <div key={index}>
+                          <Circle
+                            ref={edu.secRef}
+                            className={cn(
+                              "relative z-10 border border-stone-900 p-4 shadow-circle",
+                              { "mt-80": index !== 0 },
+                            )}
+                          />
+                        </div>
+                      </Fragment>
+                    ))}
+                </div>
+              </div>{" "}
+            </>
+          )}
           <Circle className="absolute -top-8 right-[39%] -z-10" />
           {!isLargeDevice && (
             <>
