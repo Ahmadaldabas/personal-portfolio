@@ -12,6 +12,7 @@ interface EducationCardProps
   duration: string;
   description: string;
   link: string;
+  mobile?: boolean;
   children?: React.ReactNode;
 }
 
@@ -21,6 +22,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
   duration,
   description,
   link,
+  mobile,
   children,
   ...props
 }) => {
