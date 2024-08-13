@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/config/utils";
 import React, { forwardRef } from "react";
 const Circle = forwardRef<

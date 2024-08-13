@@ -8,7 +8,9 @@ import { AnimatedBeam } from "./magicui/animated-beam";
 import EducationCard from "./EducationCard";
 import { motion } from "framer-motion";
 import Button from "./Button";
+import { useMediaQuery } from "@uidotdev/usehooks";
 const EducationCoursesSection = memo(() => {
+  const isLargeDevice = useMediaQuery("only screen and (min-width : 1024px)");
   const [isNext, setIsNext] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -557,187 +559,197 @@ const EducationCoursesSection = memo(() => {
             </div>
           </div>
           <Circle className="absolute -top-8 right-[39%] -z-10" />
-          {/* <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={jsCourseRef2}
-            toRef={devopsRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={reactCourseRef2}
-            toRef={jsCourseRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={rightRef3}
-            toRef={reactCourseRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={htmlCssRef2}
-            toRef={nodejsRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={leftRef3}
-            toRef={htmlCssRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={midRef3}
-            toRef={leftRef3}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-            reverse
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={midRef3}
-            toRef={rightRef3}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={titleRef3}
-            toRef={midRef3}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={nodejsRef2}
-            toRef={networksRef}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={leftRef2}
-            toRef={schoolRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={uniRef2}
-            toRef={cs50Ref2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={rightRef2}
-            toRef={uniRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={midRef2}
-            toRef={leftRef2}
-            reverse
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={midRef2}
-            toRef={rightRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={titleRef}
-            toRef={midRef2}
-            className="block lg:hidden"
-            pathOpacity={0.8}
-          /> */}
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={midRef}
-            toRef={coursesSetcionRef}
-            pathOpacity={0.8}
-            className="hidden lg:block"
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={midRef}
-            toRef={educationSectionRef}
-            pathOpacity={0.8}
-            className="hidden lg:block"
-            reverse
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={titleRef}
-            toRef={midRef}
-            pathOpacity={0.8}
-            className="hidden lg:block"
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={educationSectionRef}
-            toRef={uniRef}
-            className="hidden lg:block"
-            pathOpacity={0.8}
-            reverse
-          />{" "}
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={uniRef}
-            toRef={cs50Ref}
-            className="hidden lg:block"
-            pathOpacity={0.8}
-            reverse
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={cs50Ref}
-            toRef={schoolRef}
-            className="hidden lg:block"
-            pathOpacity={0.8}
-            reverse
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={coursesSetcionRef}
-            toRef={reactCourseRef}
-            className="hidden lg:block"
-            pathOpacity={0.8}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={reactCourseRef}
-            toRef={devopsRef}
-            pathOpacity={0.8}
-            className="hidden lg:block"
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={devopsRef}
-            toRef={nodejsRef}
-            pathOpacity={0.8}
-            className="hidden lg:block"
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={nodejsRef}
-            toRef={showMoreRef}
-            pathOpacity={0.8}
-            className="hidden lg:block"
-          />
+          {!isLargeDevice && (
+            <>
+              {" "}
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={jsCourseRef2}
+                toRef={devopsRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={reactCourseRef2}
+                toRef={jsCourseRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={rightRef3}
+                toRef={reactCourseRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={htmlCssRef2}
+                toRef={nodejsRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={leftRef3}
+                toRef={htmlCssRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef3}
+                toRef={leftRef3}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef3}
+                toRef={rightRef3}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={titleRef3}
+                toRef={midRef3}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={nodejsRef2}
+                toRef={networksRef}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={leftRef2}
+                toRef={schoolRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={uniRef2}
+                toRef={cs50Ref2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={rightRef2}
+                toRef={uniRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef2}
+                toRef={leftRef2}
+                reverse
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef2}
+                toRef={rightRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={titleRef}
+                toRef={midRef2}
+                className="block lg:hidden"
+                pathOpacity={0.8}
+              />
+            </>
+          )}
+          {isLargeDevice && (
+            <>
+              {" "}
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef}
+                toRef={coursesSetcionRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef}
+                toRef={educationSectionRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={titleRef}
+                toRef={midRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={educationSectionRef}
+                toRef={uniRef}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+                reverse
+              />{" "}
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={uniRef}
+                toRef={cs50Ref}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={cs50Ref}
+                toRef={schoolRef}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={coursesSetcionRef}
+                toRef={reactCourseRef}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={reactCourseRef}
+                toRef={devopsRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={devopsRef}
+                toRef={nodejsRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={nodejsRef}
+                toRef={showMoreRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+            </>
+          )}
         </div>
         {/* write code to make the animated beam make a light from education section to courses section */}
       </MaxWidthWrapper>

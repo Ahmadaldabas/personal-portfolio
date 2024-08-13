@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/config/utils";
 // make the children ts defnintion in max width to have children as one element of ReactElement or an array of them
 
