@@ -9,7 +9,7 @@ import "react-phone-number-input/style.css";
 import Button from "./Button";
 
 function ContactMeSection() {
-  const [phoneInput, setPhoneInput] = useState();
+  const [phoneInput, setPhoneInput] = useState<any>();
   return (
     <section className="relative z-0 mt-28 bg-[#0E0E0E]">
       <MaxWidthWrapper className="h-full">
@@ -69,7 +69,7 @@ function ContactMeSection() {
                   defaultCountry="AE"
                   value={phoneInput}
                   className="rounded-lg border border-stone-500 bg-transparent p-2"
-                  onChange={setPhoneInput}
+                  onChange={(e) => setPhoneInput(e)}
                   numberInputProps={{
                     className: "bg-transparent p-2",
                   }}
