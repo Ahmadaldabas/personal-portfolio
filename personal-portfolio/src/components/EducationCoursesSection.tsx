@@ -533,7 +533,7 @@ const EducationCoursesSection = memo(() => {
             </div>
           </div>
           <Circle className="absolute -top-8 right-[39%] -z-10" />
-          <AnimatedBeam
+          {/* <AnimatedBeam
             containerRef={containerRef}
             fromRef={jsCourseRef2}
             toRef={devopsRef2}
@@ -639,7 +639,7 @@ const EducationCoursesSection = memo(() => {
             toRef={midRef2}
             className="block lg:hidden"
             pathOpacity={0.8}
-          />
+          /> */}
           <AnimatedBeam
             containerRef={containerRef}
             fromRef={midRef}
