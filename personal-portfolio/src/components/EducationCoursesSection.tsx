@@ -378,7 +378,7 @@ const EducationCoursesSection = memo(() => {
             <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
               <div
                 ref={secContainerRef}
-                className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-36 gap-y-36 sm:gap-x-48"
+                className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-[8.5rem] gap-y-36 sm:gap-x-48"
               >
                 <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                   <Circle
