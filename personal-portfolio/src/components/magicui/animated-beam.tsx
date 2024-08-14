@@ -23,6 +23,7 @@ export interface AnimatedBeamProps {
   startYOffset?: number;
   endXOffset?: number;
   endYOffset?: number;
+  isMobile?: boolean;
 }
 
 export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
@@ -43,6 +44,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   startYOffset = 0,
   endXOffset = 0,
   endYOffset = 0,
+  isMobile = false,
 }) => {
   const id = useId();
   const [pathD, setPathD] = useState("");
@@ -92,25 +94,27 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     };
 
     // Initialize ResizeObserver
-    const resizeObserver = new ResizeObserver((entries) => {
-      // For all entries, recalculate the path
-      for (let entry of entries) {
-        updatePath();
-      }
-    });
+    if (!isMobile) {
+      const resizeObserver = new ResizeObserver((entries) => {
+        // For all entries, recalculate the path
+        for (let entry of entries) {
+          updatePath();
+        }
+      });
 
-    // Observe the container element
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
+      // Observe the container element
+      if (containerRef.current) {
+        resizeObserver.observe(containerRef.current);
+      }
+      return () => {
+        resizeObserver.disconnect();
+      };
     }
 
     // Call the updatePath initially to set the initial path
     updatePath();
 
     // Clean up the observer on component unmount
-    return () => {
-      resizeObserver.disconnect();
-    };
   }, [
     containerRef,
     fromRef,
@@ -120,6 +124,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     startYOffset,
     endXOffset,
     endYOffset,
+    isMobile,
   ]);
 
   return (

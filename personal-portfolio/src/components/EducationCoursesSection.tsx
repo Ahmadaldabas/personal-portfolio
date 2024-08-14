@@ -46,7 +46,7 @@ const EducationCoursesSection = memo(() => {
   const leftRef3 = useRef<HTMLDivElement>(null);
   const titleRef3 = useRef<HTMLHeadingElement>(null);
   const midRef3 = useRef<HTMLHeadingElement>(null);
-
+  const secContainerRef = useRef<HTMLDivElement>(null);
   // {"Third refs"}
 
   const selfEducationData = [
@@ -376,7 +376,10 @@ const EducationCoursesSection = memo(() => {
           {/* {"mobile courses sec"} */}
           {!isLargeDevice && (
             <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+              <div
+                ref={secContainerRef}
+                className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48"
+              >
                 <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                   <Circle
                     ref={leftRef2}
@@ -569,13 +572,13 @@ const EducationCoursesSection = memo(() => {
           <Circle className="absolute -top-8 right-[39%] -z-10" />
           {!isLargeDevice && (
             <>
-              {" "}
               <AnimatedBeam
                 containerRef={containerRef}
                 fromRef={jsCourseRef2}
                 toRef={devopsRef2}
                 className="block lg:hidden"
                 pathOpacity={0.8}
+                isMobile={!isLargeDevice}
               />
               <AnimatedBeam
                 containerRef={containerRef}
@@ -583,6 +586,7 @@ const EducationCoursesSection = memo(() => {
                 toRef={jsCourseRef2}
                 className="block lg:hidden"
                 pathOpacity={0.8}
+                isMobile={!isLargeDevice}
               />
               <AnimatedBeam
                 containerRef={containerRef}
@@ -590,6 +594,7 @@ const EducationCoursesSection = memo(() => {
                 toRef={reactCourseRef2}
                 className="block lg:hidden"
                 pathOpacity={0.8}
+                isMobile={!isLargeDevice}
               />
               <AnimatedBeam
                 containerRef={containerRef}
@@ -597,6 +602,7 @@ const EducationCoursesSection = memo(() => {
                 toRef={nodejsRef2}
                 className="block lg:hidden"
                 pathOpacity={0.8}
+                isMobile={!isLargeDevice}
               />
               <AnimatedBeam
                 containerRef={containerRef}
@@ -604,6 +610,7 @@ const EducationCoursesSection = memo(() => {
                 toRef={htmlCssRef2}
                 className="block lg:hidden"
                 pathOpacity={0.8}
+                isMobile={!isLargeDevice}
               />
               <AnimatedBeam
                 containerRef={containerRef}
@@ -611,6 +618,7 @@ const EducationCoursesSection = memo(() => {
                 toRef={leftRef3}
                 className="block lg:hidden"
                 pathOpacity={0.8}
+                isMobile={!isLargeDevice}
                 reverse
               />
               <AnimatedBeam
@@ -618,6 +626,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={midRef3}
                 toRef={rightRef3}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -625,6 +634,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={titleRef3}
                 toRef={midRef3}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -632,6 +642,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={nodejsRef2}
                 toRef={networksRef}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -639,6 +650,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={leftRef2}
                 toRef={schoolRef2}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -646,6 +658,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={uniRef2}
                 toRef={cs50Ref2}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -653,6 +666,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={rightRef2}
                 toRef={uniRef2}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -661,6 +675,7 @@ const EducationCoursesSection = memo(() => {
                 toRef={leftRef2}
                 reverse
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -668,6 +683,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={midRef2}
                 toRef={rightRef2}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
               <AnimatedBeam
@@ -675,6 +691,7 @@ const EducationCoursesSection = memo(() => {
                 fromRef={titleRef}
                 toRef={midRef2}
                 className="block lg:hidden"
+                isMobile={!isLargeDevice}
                 pathOpacity={0.8}
               />
             </>
