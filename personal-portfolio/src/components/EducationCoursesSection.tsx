@@ -8,6 +8,7 @@ import { AnimatedBeam } from "./magicui/animated-beam";
 import EducationCard from "./EducationCard";
 import { motion } from "framer-motion";
 import Button from "./Button";
+
 import { useMediaQuery } from "@uidotdev/usehooks";
 const EducationCoursesSection = memo(() => {
   const isLargeDevice = useMediaQuery("only screen and (min-width : 1024px)");
@@ -26,7 +27,7 @@ const EducationCoursesSection = memo(() => {
   const reactCourseRef = useRef<HTMLDivElement>(null);
   const devopsRef = useRef<HTMLDivElement>(null);
   const showMoreRef = useRef<HTMLDivElement>(null);
-  const thirdContainerRef = useRef<HTMLDivElement>(null);
+
   // {"Second refs"}
   const educationSectionRef2 = useRef<HTMLDivElement>(null);
   const midRef2 = useRef<HTMLDivElement>(null);
@@ -298,7 +299,10 @@ const EducationCoursesSection = memo(() => {
   return (
     <section className="px-2 text-center sm:px-8 md:px-20 md:text-start">
       <MaxWidthWrapper>
-        <div className="relative flex flex-col items-center justify-center gap-2">
+        <div
+          ref={containerRef}
+          className="relative flex flex-col items-center justify-center gap-2"
+        >
           <BlurBox className="relative z-0 inline-flex flex-col items-center justify-center gap-8 bg-white/10 p-8">
             <p className="font-semibold text-[#5ebd2e]">Education & Skills</p>
           </BlurBox>
@@ -318,33 +322,85 @@ const EducationCoursesSection = memo(() => {
             />
           </div>
           {/* Desktop */}
-          {isLargeDevice && (
-            <div
-              ref={containerRef}
-              className="mt-28 hidden w-full max-w-full items-start justify-between lg:flex"
-            >
-              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
-                <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
-                  <h3 className="text-2xl">Education</h3>
-                  <Circle
-                    ref={educationSectionRef}
-                    className="b z-10 border border-stone-900 p-4 shadow-circle"
-                  />
-                </div>
-                <div></div>
-                {educationData.map((edu, index) => (
+          <div className="mt-28 hidden w-full max-w-full items-start justify-between lg:flex">
+            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
+              <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
+                <h3 className="text-2xl">Education</h3>
+                <Circle
+                  ref={educationSectionRef}
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
+                />
+              </div>
+              <div></div>
+
+              {educationData.map((edu, index) => (
+                <Fragment key={index}>
+                  <div key={index}>
+                    <Circle
+                      ref={edu.ref}
+                      className="relative z-10 border border-stone-900 p-4 shadow-circle"
+                    />
+                  </div>
+                  <motion.div
+                    initial="initial"
+                    variants={cardsAnimateVariants}
+                    viewport={{ once: true }}
+                    className="mr-28 p-6"
+                    whileInView={"mount"}
+                  >
+                    <EducationCard
+                      key={index + 1}
+                      title={edu!.title}
+                      duration={edu!.duration}
+                      description={edu!.description}
+                      link={edu!.link}
+                    />
+                  </motion.div>
+                </Fragment>
+              ))}
+            </div>
+            <div ref={midRef}></div>
+            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
+              <div></div>
+              <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
+                <h3 className="text-2xl">Self-Education</h3>
+                <Circle
+                  ref={coursesSetcionRef}
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
+                />
+              </div>
+
+              {selfItems}
+            </div>
+          </div>
+          {/* {"mobile courses sec"} */}
+          <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
+            <div className="relative grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+              <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
+                <Circle
+                  ref={leftRef2}
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
+                />
+              </div>
+              <div></div>
+              {educationData
+                .slice(educationData.length - 1, educationData.length + 1)
+
+                .map((edu, index) => (
                   <Fragment key={index}>
                     <div key={index}>
                       <Circle
-                        ref={edu.ref}
-                        className="relative z-10 border border-stone-900 p-4 shadow-circle"
+                        className={cn(
+                          "relative z-10 border border-stone-900 p-4 shadow-circle",
+                          { "mt-80": index % 2 === 0 },
+                        )}
                       />
                     </div>
                     <motion.div
                       initial="initial"
                       variants={cardsAnimateVariants}
                       viewport={{ once: true }}
-                      className="mr-28 p-6"
+                      className=""
                       whileInView={"mount"}
                     >
                       <EducationCard
@@ -353,413 +409,344 @@ const EducationCoursesSection = memo(() => {
                         duration={edu!.duration}
                         description={edu!.description}
                         link={edu!.link}
+                        className={cn({ "mt-80": index % 2 === 0 })}
+                        mobile
+                      />
+                    </motion.div>
+                  </Fragment>
+                ))}{" "}
+              <span className="absolute h-full w-[100px]"></span>
+            </div>
+            <div ref={midRef2}></div>
+
+            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+              <div></div>
+              <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
+                <Circle
+                  ref={rightRef2}
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
+                />
+              </div>
+              {educationData
+                .slice(0, educationData.length / 2 + 1)
+                .map((edu, index) => (
+                  <Fragment key={index}>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
+                      <EducationCard
+                        key={index + 1}
+                        title={edu!.title}
+                        duration={edu!.duration}
+                        description={edu!.description}
+                        link={edu!.link}
+                        className={cn({ "mt-80": index % 2 !== 0 })}
+                        mobile
+                      />
+                    </motion.div>
+                    <div key={index}>
+                      <Circle
+                        ref={edu.secRef}
+                        className={cn(
+                          "relative z-10 border border-stone-900 p-4 shadow-circle",
+                          { "mt-80": index % 2 !== 0 },
+                        )}
+                      />
+                    </div>
+                  </Fragment>
+                ))}
+            </div>
+          </div>
+          {/* {"mobile courses third"} */}
+          <div className="mt-16 flex flex-col items-center justify-center lg:hidden">
+            <h3 className="mb-3 text-2xl">Education</h3>
+
+            <Circle
+              ref={titleRef3}
+              className="b z-10 border border-stone-900 p-4 shadow-circle"
+            />
+          </div>
+          <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
+            <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+              <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
+                <Circle
+                  ref={leftRef3}
+                  className="b z-10 border border-stone-900 p-4 shadow-circle"
+                />
+              </div>
+              <div></div>
+              {selfEducationData
+                .slice(
+                  selfEducationData.length / 2,
+                  selfEducationData.length + 1,
+                )
+
+                .map((edu, index) => (
+                  <Fragment key={index}>
+                    <div key={index}>
+                      <Circle
+                        ref={edu.secRef}
+                        className={cn(
+                          "relative z-10 mt-80 border border-stone-900 p-4 shadow-circle",
+                          { "mt-80": index % 2 === 0 },
+                        )}
+                      />
+                    </div>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
+                      <EducationCard
+                        key={index + 1}
+                        title={edu!.title}
+                        duration={edu!.duration}
+                        description={edu!.description}
+                        link={edu!.link}
+                        className={cn("mt-80")}
+                        mobile
                       />
                     </motion.div>
                   </Fragment>
                 ))}
-              </div>
-              <div ref={midRef}></div>
-              <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
-                <div></div>
-                <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
-                  <h3 className="text-2xl">Self-Education</h3>
-                  <Circle
-                    ref={coursesSetcionRef}
-                    className="b z-10 border border-stone-900 p-4 shadow-circle"
-                  />
-                </div>
-
-                {selfItems}
-              </div>
-              {isLargeDevice && (
-                <>
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={midRef}
-                    toRef={coursesSetcionRef}
-                    pathOpacity={0.8}
-                    className="hidden lg:block"
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={midRef}
-                    toRef={educationSectionRef}
-                    pathOpacity={0.8}
-                    className="hidden lg:block"
-                    reverse
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={titleRef}
-                    toRef={midRef}
-                    pathOpacity={0.8}
-                    className="hidden lg:block"
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={educationSectionRef}
-                    toRef={uniRef}
-                    className="hidden lg:block"
-                    pathOpacity={0.8}
-                    reverse
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={uniRef}
-                    toRef={cs50Ref}
-                    className="hidden lg:block"
-                    pathOpacity={0.8}
-                    reverse
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={cs50Ref}
-                    toRef={schoolRef}
-                    className="hidden lg:block"
-                    pathOpacity={0.8}
-                    reverse
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={coursesSetcionRef}
-                    toRef={reactCourseRef}
-                    className="hidden lg:block"
-                    pathOpacity={0.8}
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={reactCourseRef}
-                    toRef={devopsRef}
-                    pathOpacity={0.8}
-                    className="hidden lg:block"
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={devopsRef}
-                    toRef={nodejsRef}
-                    pathOpacity={0.8}
-                    className="hidden lg:block"
-                  />
-                  <AnimatedBeam
-                    containerRef={containerRef}
-                    fromRef={nodejsRef}
-                    toRef={showMoreRef}
-                    pathOpacity={0.8}
-                    className="hidden lg:block"
-                  />
-                </>
-              )}
             </div>
-          )}
-          {/* {"mobile courses sec"} */}
-          {!isLargeDevice && (
-            <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-                <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
-                  <Circle
-                    ref={leftRef2}
-                    className="b z-10 border border-stone-900 p-4 shadow-circle"
-                  />
-                </div>
-                <div></div>
-                {educationData
-                  .slice(educationData.length - 1, educationData.length + 1)
+            <div ref={midRef3}></div>
 
-                  .map((edu, index) => (
-                    <Fragment key={index}>
-                      <div key={index}>
-                        <Circle
-                          ref={edu.secRef}
-                          className={cn(
-                            "relative z-10 border border-stone-900 p-4 shadow-circle",
-                            { "mt-80": index % 2 === 0 },
-                          )}
-                        />
-                      </div>
-                      <motion.div
-                        initial="initial"
-                        variants={cardsAnimateVariants}
-                        viewport={{ once: true }}
-                        className=""
-                        whileInView={"mount"}
-                      >
-                        <EducationCard
-                          key={index + 1}
-                          title={edu!.title}
-                          duration={edu!.duration}
-                          description={edu!.description}
-                          link={edu!.link}
-                          className={cn({ "mt-80": index % 2 === 0 })}
-                          mobile
-                        />
-                      </motion.div>
-                    </Fragment>
-                  ))}
-              </div>
-              <div ref={midRef2}></div>
-
-              <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-                <div></div>
-                <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
-                  <Circle
-                    ref={rightRef2}
-                    className="b z-10 border border-stone-900 p-4 shadow-circle"
-                  />
-                </div>
-                {educationData
-                  .slice(0, educationData.length / 2 + 1)
-                  .map((edu, index) => (
-                    <Fragment key={index}>
-                      <motion.div
-                        initial="initial"
-                        variants={cardsAnimateVariants}
-                        viewport={{ once: true }}
-                        className=""
-                        whileInView={"mount"}
-                      >
-                        <EducationCard
-                          key={index + 1}
-                          title={edu!.title}
-                          duration={edu!.duration}
-                          description={edu!.description}
-                          link={edu!.link}
-                          className={cn({ "mt-80": index % 2 !== 0 })}
-                          mobile
-                        />
-                      </motion.div>
-                      <div key={index}>
-                        <Circle
-                          ref={edu.secRef}
-                          className={cn(
-                            "relative z-10 border border-stone-900 p-4 shadow-circle",
-                            { "mt-80": index % 2 !== 0 },
-                          )}
-                        />
-                      </div>
-                    </Fragment>
-                  ))}
-              </div>
-            </div>
-          )}
-          {/* {"mobile courses third"} */}
-          {!isLargeDevice && (
-            <>
-              <div className="mt-16 flex flex-col items-center justify-center lg:hidden">
-                <h3 className="mb-3 text-2xl">Education</h3>
-
+            <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
+              <div></div>
+              <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
                 <Circle
-                  ref={titleRef3}
+                  ref={rightRef3}
                   className="b z-10 border border-stone-900 p-4 shadow-circle"
                 />
               </div>
-              <div
-                ref={thirdContainerRef}
-                className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden"
-              >
-                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-                  <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
-                    <Circle
-                      ref={leftRef3}
-                      className="b z-10 border border-stone-900 p-4 shadow-circle"
-                    />
-                  </div>
-                  <div></div>
-                  {selfEducationData
-                    .slice(
-                      selfEducationData.length / 2,
-                      selfEducationData.length + 1,
-                    )
-
-                    .map((edu, index) => (
-                      <Fragment key={index}>
-                        <div key={index}>
-                          <Circle
-                            ref={edu.secRef}
-                            className={cn(
-                              "relative z-10 mt-80 border border-stone-900 p-4 shadow-circle",
-                              { "mt-80": index % 2 === 0 },
-                            )}
-                          />
-                        </div>
-                        <motion.div
-                          initial="initial"
-                          variants={cardsAnimateVariants}
-                          viewport={{ once: true }}
-                          className=""
-                          whileInView={"mount"}
-                        >
-                          <EducationCard
-                            key={index + 1}
-                            title={edu!.title}
-                            duration={edu!.duration}
-                            description={edu!.description}
-                            link={edu!.link}
-                            className={cn("mt-80")}
-                            mobile
-                          />
-                        </motion.div>
-                      </Fragment>
-                    ))}
-                </div>
-                <div ref={midRef3}></div>
-
-                <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
-                  <div></div>
-                  <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
-                    <Circle
-                      ref={rightRef3}
-                      className="b z-10 border border-stone-900 p-4 shadow-circle"
-                    />
-                  </div>
-                  {selfEducationData
-                    .slice(0, selfEducationData.length / 2)
-                    .map((edu, index) => (
-                      <Fragment key={index}>
-                        <motion.div
-                          initial="initial"
-                          variants={cardsAnimateVariants}
-                          viewport={{ once: true }}
-                          className=""
-                          whileInView={"mount"}
-                        >
-                          <EducationCard
-                            key={index + 1}
-                            title={edu!.title}
-                            duration={edu!.duration}
-                            description={edu!.description}
-                            link={edu!.link}
-                            className={cn({ "mt-80": index !== 0 })}
-                            mobile
-                          />
-                        </motion.div>
-                        <div key={index}>
-                          <Circle
-                            ref={edu.secRef}
-                            className={cn(
-                              "relative z-10 border border-stone-900 p-4 shadow-circle",
-                              { "mt-80": index !== 0 },
-                            )}
-                          />
-                        </div>
-                      </Fragment>
-                    ))}
-                </div>
-                {!isLargeDevice && (
-                  <>
-                    {" "}
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={jsCourseRef2}
-                      toRef={devopsRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={reactCourseRef2}
-                      toRef={jsCourseRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={rightRef3}
-                      toRef={reactCourseRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={htmlCssRef2}
-                      toRef={nodejsRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={leftRef3}
-                      toRef={htmlCssRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={midRef3}
-                      toRef={leftRef3}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                      reverse
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={midRef3}
-                      toRef={rightRef3}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={titleRef3}
-                      toRef={midRef3}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={nodejsRef2}
-                      toRef={networksRef}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={leftRef2}
-                      toRef={schoolRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={uniRef2}
-                      toRef={cs50Ref2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={rightRef2}
-                      toRef={uniRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={midRef2}
-                      toRef={leftRef2}
-                      reverse
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={midRef2}
-                      toRef={rightRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                    <AnimatedBeam
-                      containerRef={thirdContainerRef}
-                      fromRef={titleRef}
-                      toRef={midRef2}
-                      className="block lg:hidden"
-                      pathOpacity={0.8}
-                    />
-                  </>
-                )}
-              </div>
+              {selfEducationData
+                .slice(0, selfEducationData.length / 2)
+                .map((edu, index) => (
+                  <Fragment key={index}>
+                    <motion.div
+                      initial="initial"
+                      variants={cardsAnimateVariants}
+                      viewport={{ once: true }}
+                      className=""
+                      whileInView={"mount"}
+                    >
+                      <EducationCard
+                        key={index + 1}
+                        title={edu!.title}
+                        duration={edu!.duration}
+                        description={edu!.description}
+                        link={edu!.link}
+                        className={cn({ "mt-80": index !== 0 })}
+                        mobile
+                      />
+                    </motion.div>
+                    <div key={index}>
+                      <Circle
+                        ref={edu.secRef}
+                        className={cn(
+                          "relative z-10 border border-stone-900 p-4 shadow-circle",
+                          { "mt-80": index !== 0 },
+                        )}
+                      />
+                    </div>
+                  </Fragment>
+                ))}
+            </div>
+          </div>
+          <Circle className="absolute -top-8 right-[39%] -z-10" />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={jsCourseRef2}
+            toRef={devopsRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={reactCourseRef2}
+            toRef={jsCourseRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={rightRef3}
+            toRef={reactCourseRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={htmlCssRef2}
+            toRef={nodejsRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={leftRef3}
+            toRef={htmlCssRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={midRef3}
+            toRef={leftRef3}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={midRef3}
+            toRef={rightRef3}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={titleRef3}
+            toRef={midRef3}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={nodejsRef2}
+            toRef={networksRef}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={leftRef2}
+            toRef={schoolRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={uniRef2}
+            toRef={cs50Ref2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={rightRef2}
+            toRef={uniRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={midRef2}
+            toRef={leftRef2}
+            reverse
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={midRef2}
+            toRef={rightRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={titleRef}
+            toRef={midRef2}
+            className="block lg:hidden"
+            pathOpacity={0.8}
+          />
+          {isLargeDevice && (
+            <>
+              {" "}
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef}
+                toRef={coursesSetcionRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={midRef}
+                toRef={educationSectionRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={titleRef}
+                toRef={midRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={educationSectionRef}
+                toRef={uniRef}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+                reverse
+              />{" "}
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={uniRef}
+                toRef={cs50Ref}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={cs50Ref}
+                toRef={schoolRef}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+                reverse
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={coursesSetcionRef}
+                toRef={reactCourseRef}
+                className="hidden lg:block"
+                pathOpacity={0.8}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={reactCourseRef}
+                toRef={devopsRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={devopsRef}
+                toRef={nodejsRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={nodejsRef}
+                toRef={showMoreRef}
+                pathOpacity={0.8}
+                className="hidden lg:block"
+              />
             </>
           )}
-          <Circle className="absolute -top-8 right-[39%] -z-10" />
         </div>
         {/* write code to make the animated beam make a light from education section to courses section */}
       </MaxWidthWrapper>
