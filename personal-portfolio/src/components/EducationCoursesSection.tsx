@@ -192,7 +192,6 @@ const EducationCoursesSection = memo(() => {
   };
   const cardsAnimateVariants = {
     mount: {
-      opacity: 1,
       y: "0",
       transition: {
         duration: 1,
@@ -200,7 +199,6 @@ const EducationCoursesSection = memo(() => {
       },
     },
     initial: {
-      opacity: 0,
       y: "50%",
       transition: {
         duration: 1,
