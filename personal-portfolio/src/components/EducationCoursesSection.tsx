@@ -135,79 +135,79 @@ const EducationCoursesSection = memo(() => {
       secRef: schoolRef2,
     },
   ];
-  const cardVariants = {
-    opened: {
-      opacity: 1,
-      y: "0",
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-        delay: 0.2,
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: "-121%",
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    },
-  };
+  // const cardVariants = {
+  //   opened: {
+  //     opacity: 1,
+  //     y: "0",
+  //     transition: {
+  //       duration: 0.7,
+  //       ease: "easeOut",
+  //       delay: 0.2,
+  //     },
+  //   },
+  //   closed: {
+  //     opacity: 0,
+  //     y: "-121%",
+  //     transition: {
+  //       duration: 0.7,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  // };
 
-  const underCardsVariants = {
-    opened: {
-      opacity: 1,
-      y: "0",
-      transition: {
-        delay: 0.2,
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: "121%",
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    },
-    mount: {
-      opacity: 1,
-      y: "0",
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-    initial: {
-      opacity: 0,
-      y: "50%",
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-  };
-  const cardsAnimateVariants = {
-    mount: {
-      opacity: 1,
-      y: "0",
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-    initial: {
-      opacity: 0,
-      y: "50%",
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-  };
+  // const underCardsVariants = {
+  //   opened: {
+  //     opacity: 1,
+  //     y: "0",
+  //     transition: {
+  //       delay: 0.2,
+  //       duration: 0.7,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  //   closed: {
+  //     opacity: 0,
+  //     y: "121%",
+  //     transition: {
+  //       duration: 0.7,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  //   mount: {
+  //     opacity: 1,
+  //     y: "0",
+  //     transition: {
+  //       duration: 1,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  //   initial: {
+  //     opacity: 0,
+  //     y: "50%",
+  //     transition: {
+  //       duration: 1,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  // };
+  // const cardsAnimateVariants = {
+  //   mount: {
+  //     opacity: 1,
+  //     y: "0",
+  //     transition: {
+  //       duration: 1,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  //   initial: {
+  //     opacity: 0,
+  //     y: "50%",
+  //     transition: {
+  //       duration: 1,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  // };
 
   const selfItems = (() => {
     let items = [];
@@ -323,7 +323,7 @@ const EducationCoursesSection = memo(() => {
           {/* Desktop */}
           {isLargeDevice && (
             <div className="mt-28 hidden w-full max-w-full items-start justify-between lg:flex">
-              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-y-12 sm:items-center">
+              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
                 <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
                   <h3 className="text-2xl">Education</h3>
                   <Circle
@@ -362,7 +362,7 @@ const EducationCoursesSection = memo(() => {
               <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
                 <div></div>
                 <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
-                  <h3 className="text-2xl">Education</h3>
+                  <h3 className="text-2xl">Self-Education</h3>
                   <Circle
                     ref={coursesSetcionRef}
                     className="b z-10 border border-stone-900 p-4 shadow-circle"
@@ -378,7 +378,7 @@ const EducationCoursesSection = memo(() => {
             <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
               <div
                 ref={secContainerRef}
-                className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-x-36 gap-y-36 sm:items-center sm:gap-x-48"
+                className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-36 gap-y-36 sm:gap-x-48"
               >
                 <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                   <Circle
@@ -478,7 +478,7 @@ const EducationCoursesSection = memo(() => {
                 />
               </div>
               <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-x-[8.5rem] gap-y-36 sm:items-center sm:gap-x-48">
+                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-[8.5rem] gap-y-36 sm:gap-x-48">
                   <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                     <Circle
                       ref={leftRef3}
