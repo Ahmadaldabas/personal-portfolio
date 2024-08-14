@@ -135,79 +135,79 @@ const EducationCoursesSection = memo(() => {
       secRef: schoolRef2,
     },
   ];
-  // const cardVariants = {
-  //   opened: {
-  //     opacity: 1,
-  //     y: "0",
-  //     transition: {
-  //       duration: 0.7,
-  //       ease: "easeOut",
-  //       delay: 0.2,
-  //     },
-  //   },
-  //   closed: {
-  //     opacity: 0,
-  //     y: "-121%",
-  //     transition: {
-  //       duration: 0.7,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  // };
+  const cardVariants = {
+    opened: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+        delay: 0.2,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "-121%",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
 
-  // const underCardsVariants = {
-  //   opened: {
-  //     opacity: 1,
-  //     y: "0",
-  //     transition: {
-  //       delay: 0.2,
-  //       duration: 0.7,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  //   closed: {
-  //     opacity: 0,
-  //     y: "121%",
-  //     transition: {
-  //       duration: 0.7,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  //   mount: {
-  //     opacity: 1,
-  //     y: "0",
-  //     transition: {
-  //       duration: 1,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  //   initial: {
-  //     opacity: 0,
-  //     y: "50%",
-  //     transition: {
-  //       duration: 1,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  // };
-  // const cardsAnimateVariants = {
-  //   mount: {
-  //     opacity: 1,
-  //     y: "0",
-  //     transition: {
-  //       duration: 1,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  //   initial: {
-  //     opacity: 0,
-  //     y: "50%",
-  //     transition: {
-  //       duration: 1,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  // };
+  const underCardsVariants = {
+    opened: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        delay: 0.2,
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "121%",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+    mount: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    initial: {
+      opacity: 0,
+      y: "50%",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+  };
+  const cardsAnimateVariants = {
+    mount: {
+      opacity: 1,
+      y: "0",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    initial: {
+      opacity: 0,
+      y: "50%",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+  };
 
   const selfItems = (() => {
     let items = [];
@@ -401,23 +401,25 @@ const EducationCoursesSection = memo(() => {
                           )}
                         />
                       </div>
-                      <motion.div
-                        initial="initial"
-                        variants={cardsAnimateVariants}
-                        viewport={{ once: true }}
-                        className=""
-                        whileInView={"mount"}
-                      >
-                        <EducationCard
-                          key={index + 1}
-                          title={edu!.title}
-                          duration={edu!.duration}
-                          description={edu!.description}
-                          link={edu!.link}
-                          className={cn({ "mt-80": index % 2 === 0 })}
-                          mobile
-                        />
-                      </motion.div>
+                      <div>
+                        <motion.div
+                          initial="initial"
+                          variants={cardsAnimateVariants}
+                          viewport={{ once: true }}
+                          className=""
+                          whileInView={"mount"}
+                        >
+                          <EducationCard
+                            key={index + 1}
+                            title={edu!.title}
+                            duration={edu!.duration}
+                            description={edu!.description}
+                            link={edu!.link}
+                            className={cn({ "mt-80": index % 2 === 0 })}
+                            mobile
+                          />
+                        </motion.div>
+                      </div>
                     </Fragment>
                   ))}
               </div>
@@ -435,23 +437,25 @@ const EducationCoursesSection = memo(() => {
                   .slice(0, educationData.length / 2 + 1)
                   .map((edu, index) => (
                     <Fragment key={index}>
-                      <motion.div
-                        initial="initial"
-                        variants={cardsAnimateVariants}
-                        viewport={{ once: true }}
-                        className=""
-                        whileInView={"mount"}
-                      >
-                        <EducationCard
-                          key={index + 1}
-                          title={edu!.title}
-                          duration={edu!.duration}
-                          description={edu!.description}
-                          link={edu!.link}
-                          className={cn({ "mt-80": index % 2 !== 0 })}
-                          mobile
-                        />
-                      </motion.div>
+                      <div>
+                        <motion.div
+                          initial="initial"
+                          variants={cardsAnimateVariants}
+                          viewport={{ once: true }}
+                          className=""
+                          whileInView={"mount"}
+                        >
+                          <EducationCard
+                            key={index + 1}
+                            title={edu!.title}
+                            duration={edu!.duration}
+                            description={edu!.description}
+                            link={edu!.link}
+                            className={cn({ "mt-80": index % 2 !== 0 })}
+                            mobile
+                          />
+                        </motion.div>
+                      </div>
                       <div key={index}>
                         <Circle
                           ref={edu.secRef}
@@ -503,23 +507,25 @@ const EducationCoursesSection = memo(() => {
                             )}
                           />
                         </div>
-                        <motion.div
-                          initial="initial"
-                          variants={cardsAnimateVariants}
-                          viewport={{ once: true }}
-                          className=""
-                          whileInView={"mount"}
-                        >
-                          <EducationCard
-                            key={index + 1}
-                            title={edu!.title}
-                            duration={edu!.duration}
-                            description={edu!.description}
-                            link={edu!.link}
-                            className={cn("mt-80")}
-                            mobile
-                          />
-                        </motion.div>
+                        <div>
+                          <motion.div
+                            initial="initial"
+                            variants={cardsAnimateVariants}
+                            viewport={{ once: true }}
+                            className=""
+                            whileInView={"mount"}
+                          >
+                            <EducationCard
+                              key={index + 1}
+                              title={edu!.title}
+                              duration={edu!.duration}
+                              description={edu!.description}
+                              link={edu!.link}
+                              className={cn("mt-80")}
+                              mobile
+                            />
+                          </motion.div>
+                        </div>
                       </Fragment>
                     ))}
                 </div>
@@ -537,23 +543,25 @@ const EducationCoursesSection = memo(() => {
                     .slice(0, selfEducationData.length / 2)
                     .map((edu, index) => (
                       <Fragment key={index}>
-                        <motion.div
-                          initial="initial"
-                          variants={cardsAnimateVariants}
-                          viewport={{ once: true }}
-                          className=""
-                          whileInView={"mount"}
-                        >
-                          <EducationCard
-                            key={index + 1}
-                            title={edu!.title}
-                            duration={edu!.duration}
-                            description={edu!.description}
-                            link={edu!.link}
-                            className={cn({ "mt-80": index !== 0 })}
-                            mobile
-                          />
-                        </motion.div>
+                        <div>
+                          <motion.div
+                            initial="initial"
+                            variants={cardsAnimateVariants}
+                            viewport={{ once: true }}
+                            className=""
+                            whileInView={"mount"}
+                          >
+                            <EducationCard
+                              key={index + 1}
+                              title={edu!.title}
+                              duration={edu!.duration}
+                              description={edu!.description}
+                              link={edu!.link}
+                              className={cn({ "mt-80": index !== 0 })}
+                              mobile
+                            />
+                          </motion.div>
+                        </div>
                         <div key={index}>
                           <Circle
                             ref={edu.secRef}
