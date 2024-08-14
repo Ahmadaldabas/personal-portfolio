@@ -362,7 +362,7 @@ const EducationCoursesSection = memo(() => {
               <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-y-12">
                 <div></div>
                 <div className="flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
-                  <h3 className="text-2xl">Self-Education</h3>
+                  <h3 className="text-2xl">Education</h3>
                   <Circle
                     ref={coursesSetcionRef}
                     className="b z-10 border border-stone-900 p-4 shadow-circle"
@@ -470,7 +470,7 @@ const EducationCoursesSection = memo(() => {
           {!isLargeDevice && (
             <>
               <div className="mt-16 flex flex-col items-center justify-center lg:hidden">
-                <h3 className="mb-3 text-2xl">Education</h3>
+                <h3 className="mb-3 text-2xl">Self-Education</h3>
 
                 <Circle
                   ref={titleRef3}
