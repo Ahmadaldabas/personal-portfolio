@@ -117,7 +117,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     updatePath();
 
     // Clean up the observer on component unmount
-  });
+  }, [isMobile]);
 
   return (
     <svg
