@@ -94,6 +94,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     };
 
     // Initialize ResizeObserver
+    console.log(isMobile);
     if (!isMobile) {
       const resizeObserver = new ResizeObserver((entries) => {
         // For all entries, recalculate the path
@@ -116,7 +117,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     updatePath();
 
     // Clean up the observer on component unmount
-  }, []);
+  });
 
   return (
     <svg
