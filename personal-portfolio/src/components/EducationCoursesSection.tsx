@@ -378,7 +378,7 @@ const EducationCoursesSection = memo(() => {
             <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
               <div
                 ref={secContainerRef}
-                className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-48 gap-y-36 sm:gap-x-48"
+                className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48"
               >
                 <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                   <Circle
@@ -423,7 +423,7 @@ const EducationCoursesSection = memo(() => {
               </div>
               <div ref={midRef2}></div>
 
-              <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-48 gap-y-36 sm:gap-x-48">
+              <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
                 <div></div>
                 <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
                   <Circle
@@ -478,7 +478,7 @@ const EducationCoursesSection = memo(() => {
                 />
               </div>
               <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-48 gap-y-36 sm:gap-x-48">
+                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
                   <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                     <Circle
                       ref={leftRef3}
@@ -525,7 +525,7 @@ const EducationCoursesSection = memo(() => {
                 </div>
                 <div ref={midRef3}></div>
 
-                <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-48 gap-y-36 sm:gap-x-48">
+                <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-40 gap-y-36 sm:gap-x-48">
                   <div></div>
                   <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
                     <Circle
