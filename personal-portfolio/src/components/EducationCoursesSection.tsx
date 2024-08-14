@@ -323,7 +323,7 @@ const EducationCoursesSection = memo(() => {
           {/* Desktop */}
           {isLargeDevice && (
             <div className="mt-28 hidden w-full max-w-full items-start justify-between lg:flex">
-              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-y-12">
+              <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-y-12 sm:items-center">
                 <div className="mb-24 flex w-40 max-w-40 flex-col items-center justify-center justify-self-start">
                   <h3 className="text-2xl">Education</h3>
                   <Circle
@@ -378,7 +378,7 @@ const EducationCoursesSection = memo(() => {
             <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
               <div
                 ref={secContainerRef}
-                className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-x-[8.5rem] gap-y-36 sm:items-center sm:gap-x-48"
+                className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-x-36 gap-y-36 sm:items-center sm:gap-x-48"
               >
                 <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                   <Circle
@@ -478,7 +478,7 @@ const EducationCoursesSection = memo(() => {
                 />
               </div>
               <div className="mt-28 flex w-full max-w-full items-start justify-between text-start lg:hidden">
-                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] items-center justify-items-center gap-x-[8.5rem] gap-y-36 sm:gap-x-48">
+                <div className="grid grid-cols-[auto_,_minmax(0,_1fr)] justify-items-center gap-x-[8.5rem] gap-y-36 sm:items-center sm:gap-x-48">
                   <div className="flex w-10 max-w-10 flex-col items-start justify-between justify-self-start">
                     <Circle
                       ref={leftRef3}
