@@ -149,8 +149,8 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         strokeLinecap="round"
       />
       <defs>
-        <motion.linearGradient
-          className="transform-cpu"
+        {/* <motion.linearGradient
+          className="transform-gpu"
           id={id}
           gradientUnits={"userSpaceOnUse"}
           initial={{
@@ -181,7 +181,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
             stopColor={gradientStopColor}
             stopOpacity="0"
           ></stop>
-        </motion.linearGradient>
+        </motion.linearGradient> */}
       </defs>
     </svg>
   );
