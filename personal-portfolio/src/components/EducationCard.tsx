@@ -31,7 +31,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       target="_blank"
       href={link}
       className={cn(
-        "group relative flex h-56 max-h-56 max-w-full gap-10 rounded-lg border bg-white-card px-3 py-6 transition-all hover:border-stone-800 sm:w-96 sm:max-w-96 sm:p-6",
+        "group relative flex h-56 max-h-56 max-w-full gap-10 rounded-lg border bg-white-card transition-all hover:border-stone-800 sm:w-96 sm:max-w-96 sm:p-6",
         className,
         { ...props },
       )}
