@@ -116,17 +116,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     updatePath();
 
     // Clean up the observer on component unmount
-  }, [
-    containerRef,
-    fromRef,
-    toRef,
-    curvature,
-    startXOffset,
-    startYOffset,
-    endXOffset,
-    endYOffset,
-    isMobile,
-  ]);
+  }, []);
 
   return (
     <svg
