@@ -570,7 +570,7 @@ const EducationCoursesSection = memo(() => {
             </>
           )}
           <Circle className="absolute -top-8 right-[39%] -z-10" />
-          {!isLargeDevice && (
+          {/* {!isLargeDevice && (
             <>
               <AnimatedBeam
                 containerRef={containerRef}
@@ -680,7 +680,7 @@ const EducationCoursesSection = memo(() => {
                 pathOpacity={0.8}
               />
             </>
-          )}
+          )} */}
           {isLargeDevice && (
             <>
               {" "}
