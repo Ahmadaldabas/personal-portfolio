@@ -31,7 +31,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       target="_blank"
       href={link}
       className={cn(
-        "group relative flex h-56 max-h-56 max-w-full gap-10 rounded-lg border bg-white-card p-6 transition-all hover:border-stone-800 sm:w-96 sm:max-w-96",
+        "group relative flex h-56 max-h-56 max-w-full gap-10 rounded-lg border bg-white-card px-3 py-6 transition-all hover:border-stone-800 sm:w-96 sm:max-w-96 sm:p-6",
         className,
         { ...props },
       )}
@@ -39,7 +39,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       <div className="flex flex-col items-start gap-1">
         <span className="item-center relative flex w-full justify-between">
           <span className="w-full font-bold text-[#5ebd2e]">{duration}</span>
-          <Circle className="absolute -right-4 -top-3 rounded-full border border-stone-900 bg-yellow-cta p-3 transition-all group-hover:bg-black sm:-right-6 sm:-top-2">
+          <Circle className="absolute -right-1 -top-2 rounded-full border border-stone-900 bg-yellow-cta p-3 transition-all group-hover:bg-black sm:-right-4 sm:-top-3 md:-right-6 md:-top-2">
             <svg
               fill="currentColor"
               viewBox="0 0 20 20"
