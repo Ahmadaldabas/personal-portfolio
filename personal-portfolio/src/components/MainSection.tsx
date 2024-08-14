@@ -30,7 +30,8 @@ function MainSection() {
             <div className={titleClass("mb-8 max-w-[30rem]")}>
               <h1 className="text-4xl sm:text-5xl xl:text-6xl">
                 I&apos;ll build, design and deploy your{" "}
-                <span className="inline-block">
+                <span className="">
+                  <br className="block md:hidden lg:block" />
                   <TypewriterComponent
                     options={{
                       strings: [
