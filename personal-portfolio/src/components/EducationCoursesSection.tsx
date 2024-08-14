@@ -401,25 +401,24 @@ const EducationCoursesSection = memo(() => {
                           )}
                         />
                       </div>
-                      <div>
-                        <motion.div
-                          initial="initial"
-                          variants={cardsAnimateVariants}
-                          viewport={{ once: true }}
-                          className=""
-                          whileInView={"mount"}
-                        >
-                          <EducationCard
-                            key={index + 1}
-                            title={edu!.title}
-                            duration={edu!.duration}
-                            description={edu!.description}
-                            link={edu!.link}
-                            className={cn({ "mt-80": index % 2 === 0 })}
-                            mobile
-                          />
-                        </motion.div>
-                      </div>
+                      <div></div>
+                      <motion.div
+                      // initial="initial"
+                      // variants={cardsAnimateVariants}
+                      // viewport={{ once: true }}
+                      // className=""
+                      // whileInView={"mount"}
+                      >
+                        <EducationCard
+                          key={index + 1}
+                          title={edu!.title}
+                          duration={edu!.duration}
+                          description={edu!.description}
+                          link={edu!.link}
+                          className={cn({ "mt-80": index % 2 === 0 })}
+                          mobile
+                        />
+                      </motion.div>
                     </Fragment>
                   ))}
               </div>
@@ -439,11 +438,11 @@ const EducationCoursesSection = memo(() => {
                     <Fragment key={index}>
                       <div>
                         <motion.div
-                          initial="initial"
-                          variants={cardsAnimateVariants}
-                          viewport={{ once: true }}
-                          className=""
-                          whileInView={"mount"}
+                        // initial="initial"
+                        // variants={cardsAnimateVariants}
+                        // viewport={{ once: true }}
+                        // className=""
+                        // whileInView={"mount"}
                         >
                           <EducationCard
                             key={index + 1}
@@ -509,11 +508,11 @@ const EducationCoursesSection = memo(() => {
                         </div>
                         <div>
                           <motion.div
-                            initial="initial"
-                            variants={cardsAnimateVariants}
-                            viewport={{ once: true }}
-                            className=""
-                            whileInView={"mount"}
+                          // initial="initial"
+                          // variants={cardsAnimateVariants}
+                          // viewport={{ once: true }}
+                          // className=""
+                          // whileInView={"mount"}
                           >
                             <EducationCard
                               key={index + 1}
@@ -545,11 +544,11 @@ const EducationCoursesSection = memo(() => {
                       <Fragment key={index}>
                         <div>
                           <motion.div
-                            initial="initial"
-                            variants={cardsAnimateVariants}
-                            viewport={{ once: true }}
-                            className=""
-                            whileInView={"mount"}
+                          // initial="initial"
+                          // variants={cardsAnimateVariants}
+                          // viewport={{ once: true }}
+                          // className=""
+                          // whileInView={"mount"}
                           >
                             <EducationCard
                               key={index + 1}
