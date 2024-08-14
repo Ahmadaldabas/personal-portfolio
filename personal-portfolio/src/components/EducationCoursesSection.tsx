@@ -525,7 +525,7 @@ const EducationCoursesSection = memo(() => {
                 </div>
                 <div ref={midRef3}></div>
 
-                <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-[139px] gap-y-36 sm:gap-x-48">
+                <div className="grid grid-cols-[minmax(0,_1fr)_,_auto] items-center justify-items-center gap-x-[139px] gap-y-36">
                   <div></div>
                   <div className="flex w-10 max-w-10 flex-col items-center justify-center justify-self-start">
                     <Circle
