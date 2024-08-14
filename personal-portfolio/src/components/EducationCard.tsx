@@ -39,7 +39,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       <div className="flex flex-col items-start gap-1">
         <span className="item-center relative flex w-full justify-between">
           <span className="w-full font-bold text-[#5ebd2e]">{duration}</span>
-          <Circle className="absolute -right-1 -top-2 rounded-full border border-stone-900 bg-yellow-cta p-3 transition-all group-hover:bg-black sm:-right-4 sm:-top-3 md:-right-6 md:-top-2">
+          <Circle className="absolute -right-1 -top-3 rounded-full border border-stone-900 bg-yellow-cta p-3 transition-all group-hover:bg-black sm:-right-4 sm:-top-3 md:-right-6 md:-top-2">
             <svg
               fill="currentColor"
               viewBox="0 0 20 20"
