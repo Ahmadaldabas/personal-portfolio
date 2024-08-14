@@ -105,10 +105,11 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       // Observe the container element
       if (containerRef.current) {
         resizeObserver.observe(containerRef.current);
+
+        return () => {
+          resizeObserver.disconnect();
+        };
       }
-      return () => {
-        resizeObserver.disconnect();
-      };
     }
 
     // Call the updatePath initially to set the initial path
@@ -154,7 +155,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         strokeLinecap="round"
       />
       <defs>
-        {/* <motion.linearGradient
+        <motion.linearGradient
           className="transform-gpu"
           id={id}
           gradientUnits={"userSpaceOnUse"}
@@ -186,7 +187,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
             stopColor={gradientStopColor}
             stopOpacity="0"
           ></stop>
-        </motion.linearGradient> */}
+        </motion.linearGradient>
       </defs>
     </svg>
   );
