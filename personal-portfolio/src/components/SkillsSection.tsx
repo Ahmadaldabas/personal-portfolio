@@ -19,7 +19,7 @@ function SkillsSection() {
               <p>Passion led us here</p>
               <h2
                 className={titleClass(
-                  "max-w-144 text-3xl sm:text-4xl xl:text-5xl",
+                  "text-3xl sm:max-w-144 sm:text-4xl xl:text-5xl",
                 )}
               >
                 The process that makes your life{" "}
