@@ -51,7 +51,7 @@ function ContactMeSection() {
             </div>
           </div>
           <div>
-            <div className="mx-auto flex w-[90%] flex-col justify-between rounded-lg bg-[#262626] p-6 xl:p-8">
+            <div className="mx-auto flex w-full flex-col justify-between rounded-lg bg-[#262626] p-6 xl:p-8">
               <h3
                 className={
                   "mb-12 text-center text-2xl text-white xl:text-start"
