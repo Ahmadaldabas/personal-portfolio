@@ -66,14 +66,14 @@ function ProjectsSection() {
           <>
             {" "}
             {screenSize !== "lg" && screenSize !== "xl" && (
-              <div className="grid grid-cols-1 items-center justify-items-center gap-x-12 gap-y-6 text-center md:grid-cols-2 md:justify-around md:text-start">
+              <div className="grid grid-cols-1 items-center justify-items-center gap-x-12 gap-y-6 text-center md:grid-cols-2 md:items-start md:justify-around md:justify-items-start md:text-start">
                 <div className="flex flex-col gap-8 self-start">
                   <h2
                     className={titleClass("z text-4xl sm:text-5xl xl:text-6xl")}
                   >
                     Projects
                   </h2>
-                  <p className="max-w-80 text-xl sm:max-w-52 sm:text-2xl">
+                  <p className="max-w-80 text-xl md:max-w-52 md:text-2xl">
                     A selection of my crafted work, built from scratch by me.
                   </p>
                 </div>
