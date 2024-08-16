@@ -11,7 +11,7 @@ import Button from "./Button";
 function ContactMeSection() {
   const [phoneInput, setPhoneInput] = useState<any>();
   return (
-    <section className="relative z-0 bg-[#0E0E0E] px-8 sm:pt-20 md:px-12 lg:px-14">
+    <section className="relative z-0 bg-[#0E0E0E] sm:px-8 sm:pt-20 md:px-12 lg:px-14">
       <MaxWidthWrapper className="h-full">
         <div className="grid h-full grid-cols-1 justify-items-center gap-y-12 py-12 text-white xl:grid-cols-[1.1fr_1fr] xl:justify-items-stretch">
           <div>
