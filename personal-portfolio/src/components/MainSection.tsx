@@ -28,7 +28,7 @@ function MainSection() {
           <div className="">
             <p className="mb-1 md:mb-5">Hi, my name is Ahmad.</p>
             <div className={titleClass("mb-8 max-w-[30rem]")}>
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl">
+              <h1 className="text-4xl sm:text-5xl xl:text-7xl">
                 I&apos;ll build, design and deploy your{" "}
                 <span className="">
                   <br className="block md:hidden lg:block" />
