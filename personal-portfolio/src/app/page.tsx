@@ -18,8 +18,8 @@ export default function Home() {
       <SkillsSection />
       <EducationCoursesSection />
       <ProjectsSection />
-      {/* 
-      {/* <ContactMeSection /> */}
+
+      <ContactMeSection />
     </>
   );
 }
